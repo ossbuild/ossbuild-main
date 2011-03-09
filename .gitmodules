@@ -1,0 +1,3 @@
+[submodule "jhbuild"]
+	path = jhbuild
+	url = git://git.gnome.org/jhbuild
