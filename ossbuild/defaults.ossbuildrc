@@ -11,8 +11,8 @@ if 'GTK_PATH' in os.environ.keys():
 modulesets_dir = os.path.join(SRCDIR, 'modulesets')
 
 # what modules to build?
-moduleset = 'gnome-apps-3.0'
-modules = [ 'meta-gnome-core', 'meta-gnome-apps-tested' ]
+moduleset = 'ossbuild'
+modules = []
 
 # policy for modules to build, options are:
 #  - all: build everything requested
@@ -32,9 +32,9 @@ skip = []
 tags = []
 
 # directories
-prefix = '/opt/gnome'
-checkoutroot = os.path.expanduser('~/checkout/gnome')
-tarballdir = None    # will default to checkoutroot
+prefix = '~/ossbuild/dist'
+checkoutroot = os.path.expanduser('~/ossbuild/checkout')
+tarballdir = os.path.expanduser('~/ossbuild/sources')
 buildroot = None     # if set, packages will be build with srcdir!=builddir
 
 # When using srcdir!=builddir builds, this key allows you to use a
@@ -164,7 +164,7 @@ jhbuildbot_dir = None
 jhbuildbot_mastercfg = "master.cfg"
 
 # whether to use a local copy of modulesets (instead of fetching them from svn)
-use_local_modulesets = False
+use_local_modulesets = True
 
 # whether to ignore soft dependencies
 ignore_suggests = False
