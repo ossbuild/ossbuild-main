@@ -25,11 +25,29 @@ class cmd_update(jcommands.cmd_update):
     pass
 register_command(cmd_update)
 
+class cmd_updateone(jcommands.cmd_updateone):
+    pass
+register_command(cmd_updateone)
+
+class cmd_cleanone(jcommands.cmd_cleanone):
+    pass
+register_command(cmd_cleanone)
 
 class cmd_build(jcommands.cmd_build):
     pass
 register_command(cmd_build)
 
+class cmd_buildone(jcommands.cmd_buildone):
+    pass
+register_command(cmd_buildone)
+
+class cmd_run(jcommands.cmd_run):
+    pass
+register_command(cmd_run)
+
+class cmd_shell(jcommands.cmd_shell):
+    pass
+register_command(cmd_shell)
 
 class cmd_list(jcommands.cmd_list):
     pass
