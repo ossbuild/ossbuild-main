@@ -42,11 +42,12 @@ class cmd_buildone(jcommands.cmd_buildone):
 register_command(cmd_buildone)
 
 class cmd_run(jcommands.cmd_run):
+    doc = N_('Run a command under the OSSBuild environment')
     pass
 register_command(cmd_run)
 
 class cmd_shell(jcommands.cmd_shell):
-    pass
+    doc = N_('Start a shell under the OSSBuild environment')
 register_command(cmd_shell)
 
 class cmd_list(jcommands.cmd_list):
