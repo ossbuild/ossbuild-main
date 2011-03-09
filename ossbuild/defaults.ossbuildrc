@@ -1,0 +1,173 @@
+# -*- mode: python -*-
+# This file holds the default values for the ~/.jhbuildrc file.
+# Do not copy this to ~/.jhbuildrc
+
+import os, sys
+
+if 'GTK_PATH' in os.environ.keys():
+    del os.environ['GTK_PATH']
+
+# module directory
+modulesets_dir = os.path.join(SRCDIR, 'modulesets')
+
+# what modules to build?
+moduleset = 'gnome-apps-3.0'
+modules = [ 'meta-gnome-core', 'meta-gnome-apps-tested' ]
+
+# policy for modules to build, options are:
+#  - all: build everything requested
+#  - updated: build only modules that have changed
+#  - updated-deps: build modules that have changed, or their dependencies
+#    have changed.
+build_policy = 'updated-deps'
+
+# Skip modules installed more recently than the specified relative time.
+# min_age can only be specified via the command-line. Setting min_age within
+# the configuration file has no effect.
+min_age = None
+
+# modules to skip during dependency expansion
+skip = []
+# tags used as module filters
+tags = []
+
+# directories
+prefix = '/opt/gnome'
+checkoutroot = os.path.expanduser('~/checkout/gnome')
+tarballdir = None    # will default to checkoutroot
+buildroot = None     # if set, packages will be build with srcdir!=builddir
+
+# When using srcdir!=builddir builds, this key allows you to use a
+# different builddir name.  Some people like this because it reduces
+# the chance of mixing the two up.  In the pattern, '%s' will be
+# substituted with the srcdir base component.
+builddir_pattern = '%s'
+
+# override environment variables, command line arguments, etc
+autogenargs = '--disable-static --disable-gtk-doc'
+cmakeargs = ''
+makeargs = ''
+cflags = ''
+
+# a alternative install program to use; the included install-check
+# program won't update timestamps if the header hasn't changed
+installprog = os.path.join(os.environ['HOME'], '.local/bin', 'install-check')
+if not os.path.exists(installprog):
+    installprog = '/usr/bin/install-check'
+if not os.path.exists(installprog):
+    installprog = None
+
+# override cvs roots, branch tags, etc
+repos = {}
+cvsroots = {}
+svnroots = {}
+branches = {}
+module_autogenargs = {}
+module_cmakeargs = {}
+module_makeargs = {}
+module_extra_env = {}
+module_makecheck = {}
+module_nopoison = {}
+
+# control parts of the build process
+nonetwork     = False  # never touch the network
+alwaysautogen = False  # call autogen.sh even if a makefile is found
+nobuild       = False  # don't actually build the packages
+makeclean     = False  # run make clean before building
+makecheck     = False  # run make check after building
+makedist      = False  # run make dist after building
+makedistcheck = False  # run make distcheck after building
+trycheckout   = False  # try to force checkout and autogen on failure
+nopoison      = False  # don't poison modules on failure
+forcecheck    = False  # run make check even when not building
+
+build_targets = ['install','test']
+
+makecheck_advisory = False # whether to pass over 'make check' failures
+
+interact      = True   # whether to interact with the user.
+quiet_mode    = False  # whether to display running commands output
+progress_bar  = True   # whether to display a progress bar when running in quiet mode
+
+# checkout modes. For VCS directories, it specifies how the checkout
+# is done. We can also specify checkout modes for specific modules
+checkout_mode = 'update'
+module_checkout_mode = {}
+
+# in case we use the copy checkout mode, we can set up a copy dir. Defaults to
+# checkout dir
+copy_dir = None
+
+# whether to install to lib64 directories?  Currently this will default to
+# True on Linux AMD64, PPC64 or S390x systems, and False everywhere else.
+# Patches accepted to fix the default for other architectures.
+try:
+    uname = os.uname()
+    use_lib64 = (uname[0], uname[4]) in [ ('Linux', 'x86_64'),
+                                          ('Linux', 'ppc64'),
+                                          ('Linux', 's390x') ]
+    del uname
+except AttributeError:
+    # some platforms don't have os.uname (ie. Win32)
+    use_lib64 = False
+
+# default buildscript.  You should probably leave this as the default.
+# In particular, don't set it to 'gtk'.
+buildscript = 'terminal'
+
+# where to put tinderbox output
+tinderbox_outputdir = None
+
+# sticky date to perform historic checkouts
+sticky_date = None
+
+# whether to try and pretty print the output
+pretty_print = True
+
+# program to use for subversion support (supports svn or bzr)
+svn_program = 'svn'
+
+# program to use for cvs
+cvs_program = 'cvs'
+
+# try and use mirrors?
+mirror_policy = ""
+module_mirror_policy = {}
+
+if sys.platform.startswith('win'):
+    notrayicon = True
+    nonotify = True
+else:
+    # Show a tray icon using zenity
+    notrayicon = False
+    # whether not to emit notifications through the notification daemon
+    nonotify = False
+
+# whether to run tests in real X and not in Xvfb
+noxvfb = False
+
+# arguments to pass to xvfb
+xvfbargs = ''
+
+# options for jhbuildbot slaves
+jhbuildbot_master = 'build.gnome.org:9070'
+jhbuildbot_slavename = None
+jhbuildbot_password = None
+
+# options for jhbuildbot master
+jhbuildbot_svn_commits_box = None
+try:
+    jhbuildbot_slaves_dir = os.path.abspath(".")
+except OSError:
+    jhbuildbot_slaves_dir = '.'
+jhbuildbot_dir = None
+jhbuildbot_mastercfg = "master.cfg"
+
+# whether to use a local copy of modulesets (instead of fetching them from svn)
+use_local_modulesets = False
+
+# whether to ignore soft dependencies
+ignore_suggests = False
+
+# local directory for DVCS mirror (git only atm)
+dvcs_mirror_dir = None
