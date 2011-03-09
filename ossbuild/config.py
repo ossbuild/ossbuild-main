@@ -37,4 +37,5 @@ class Config(config.Config):
     _orig_environ = None
 
     def __init__(self, filename=_default_ossbuildrc):
+        config._defaults_file = _defaults_file
         config.Config.__init__(self, filename)
