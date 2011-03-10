@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libtool">
+    <branch module="libtool/libtool-2.4.tar.gz" version="2.4"
+            repo="gnu.org">
+    </branch>
+  </autotools>
+
+</moduleset>

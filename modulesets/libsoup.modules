@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libsoup" autogen-sh="configure"
+	     autogenargs =  "--enable-ssl --enable-debug=no --disable-more-warnings">
+    <branch module="libsoup/2.32/libsoup-2.32.2.tar.bz2" version="2.32.2"
+            repo="gnome.org">
+    <patch file="libsoup-missing-windows-symbols.patch" strip="0"/>
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+      <dep package="libgcrypt"/>
+      <dep package="gnutls"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>

@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libgcrypt" autogen-sh="configure" check-target="false">
+    <branch module="libgcrypt/libgcrypt-1.4.4.tar.bz2"
+            repo="gnupg.org" version="1.4.4"
+            hash="sha256:3212b88080cf8fa006164d38fc176fafa5c29591c8384f284ab880db0dbf306f"
+            md5sum="34105aa927e23c217741966496b97e67" size="1143139" />
+    <dependencies>
+      <dep package="libgpg-error" />
+    </dependencies>
+  </autotools>
+
+</moduleset>

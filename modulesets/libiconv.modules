@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libiconv" autogen-sh="configure" check-target="false">
+    <branch module="libiconv/libiconv-1.13.1.tar.gz"
+	    repo="gnu.org" version="1.13.1"/>
+  </autotools>
+ 
+</moduleset>

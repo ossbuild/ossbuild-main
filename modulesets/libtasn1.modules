@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libtasn1" autogen-sh="configure" supports-non-srcdir-builds="no"
+	     check-target="false">
+    <branch module="libtasn1/libtasn1-1.8.tar.gz"
+            repo="gnu.org" version="1.8"
+            hash="sha256:2c81cd1d5488e6efdc67b1e8a381e70a33dc75d9c439f23220ba730bc405ee07"
+            md5sum="6b87c159e7dcb6e58204cce1edb0fecc" size="1608176" />
+  </autotools>
+ 
+</moduleset>

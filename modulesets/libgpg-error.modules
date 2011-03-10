@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libgpg-error" autogen-sh="configure" check-target="false">
+    <branch module="libgpg-error/libgpg-error-1.6.tar.bz2"
+            repo="gnupg.org" version="1.6"
+            hash="sha256:aa7df632134dfd3d4e65f5a98edd6bb9a97b498db911f4287bbaeb5ae83a1bad"
+            md5sum="f3e9870e213518b407a959f8d29cd554" size="382110">
+      <patch file="libgpg-error-versioninfo_o-wrong-path.patch" strip="0"/>
+    </branch>
+  </autotools>
+  <!-- ./configure step takes *a lot*, be patient :) --> 
+ 
+</moduleset>

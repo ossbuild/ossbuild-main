@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="gnutls" autogen-sh="configure" check-target="false" autogenargs="--disable-guile">
+    <branch module="gnutls/gnutls-2.6.5.tar.bz2"
+            repo="gnupg.org" version="2.6.5"
+            hash="sha256:e78be636072c0ab748ccf1742c4b41fc7aaff98b43166cfbc8df91c7185501cb"
+	    md5sum="92b92c36b616aa8bd69a9a0fb2b8eb24" size="5112923" >
+      <patch file="gnutls-add-missing-intl-link.patch" strip="0"/>
+      <patch file="gnutls-openssl.patch" strip="0"/>
+    </branch>
+    <dependencies>
+      <dep package="libgcrypt" />
+      <dep package="libtasn1" />
+    </dependencies>
+  </autotools>
+
+</moduleset>

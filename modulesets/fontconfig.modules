@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <tarball id="fontconfig" version="2.8.0">
+    <source href="http://www.fontconfig.org/release/fontconfig-2.8.0.tar.gz"
+            hash="sha256:fa2a1c6eea654d9fce7a4b1220f10c99cdec848dccaf1625c01f076b31382335"
+            md5sum="77e15a92006ddc2adbb06f840d591c0e" size="1548409"/>
+    <dependencies>
+      <dep package="expat"/>
+      <dep package="freetype"/>
+    </dependencies>
+  </tarball>
+
+</moduleset>

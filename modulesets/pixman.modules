@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="pixman" autogenargs="--disable-gtk">
+    <branch module="releases/pixman-0.14.0.tar.gz" version="0.14.0"
+            repo="cairo.org" 
+            hash="sha256:f0c28f4d512b6c199838dc558746e751763d3e298785af098554a8dcafc53bb4"
+            md5sum="da330524bbd975271974378b1c5e7b5d" size="468269">
+    </branch>
+  </autotools>
+
+</moduleset>

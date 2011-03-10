@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="zlib" version="1.2.5" 
+      skip-autogen="true"
+      makeargs="-f win32/Makefile.gcc"
+      makeinstallargs="install -f win32/Makefile.gcc INCLUDE_PATH=${prefix}include LIBRARY_PATH=${prefix}lib BIN_PATH=${prefix}bin">
+    <branch repo="zlib.net" module="zlib-1.2.5.tar.gz" version="1.2.5">
+      <!-- Couple of fixes to make mingw build actually work -->
+      <patch file="zlib-dll-msys.patch" strip="1"/>
+    </branch>
+  </autotools>
+ 
+</moduleset>

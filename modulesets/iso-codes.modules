@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <tarball id="iso-codes" version="3.8">
+    <source href="ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/iso-codes-3.8.tar.bz2"
+            hash="sha256:4cc4c3791f8f569af41b40835080b4b8b0c9305efd1ffebacebb576c518007a0"
+            md5sum="7b219078203a710b7510ba54c161097c" size="5323027"/>
+  </tarball>
+ 
+</moduleset>

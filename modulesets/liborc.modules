@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <tarball id="liborc" version="0.4.11">
+    <source href="http://code.entropywave.com/download/orc/orc-0.4.11.tar.gz"/>
+  </tarball>
+
+</moduleset>

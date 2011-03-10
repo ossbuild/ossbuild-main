@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <tarball id="freetype" version="2.4.4">
+    <source href="http://download.savannah.gnu.org/releases/freetype/freetype-2.4.4.tar.gz"/>
+  </tarball>
+ 
+</moduleset>

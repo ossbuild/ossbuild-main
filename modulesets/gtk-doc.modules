@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+ <binary id="gtk-doc" version="1.15">
+    <source href="http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.15/gtk-doc-1.15.tar.bz2"/>
+    <install>
+      <cmd execute="['cp', '@@SRCDIR@@/gtk-doc-1.15/gtk-doc.m4', '@@PREFIX@@/share/aclocal/']"/>
+
+      <!-- We are one step away from brain meltdown :(. Note you *can't* put &quot; in these for
+           some reason - well, try it, but it seems to subtly break sed. -->
+      <cmd execute="['sed',  
+          '-es,@VERSION@,1.15,',
+          '-es,@PACKAGE@,gtk-doc,',
+          '-es,@prefix@,@@PREFIX@@,',
+          '-es,@datarootdir@,@@PREFIX@@share,',
+          '-es,@datadir@,@@PREFIX@@share,',
+          '@@SRCDIR@@/gtk-doc-1.15/gtkdocize.in']"
+          output-file='@@PREFIX@@/bin/gtkdocize'/>
+      <cmd execute="['sed',  
+          '-es,@PERL@,/bin/perl,',
+          '-es,@VERSION@,1.15,',
+          '-es,@PACKAGE@,gtk-doc,',
+          '-es,@prefix@,@@PREFIX@@,',
+          '-es,@datarootdir@,@@PREFIX@@share,',
+          '-es,@datadir@,@@PREFIX@@share,',
+          '@@SRCDIR@@/gtk-doc-1.15/gtkdoc-rebase.in']"
+          output-file='@@PREFIX@@/bin/gtkdoc-rebase'/>
+      <cmd execute="['mkdir', '-p', '@@PREFIX@@/share/gtk-doc/data/']"/>
+      <cmd execute="['cp', '@@SRCDIR@@/gtk-doc-1.15/gtk-doc.make', '@@PREFIX@@/share/gtk-doc/data/']"/>
+    </install>
+  </binary>
+ 
+</moduleset>

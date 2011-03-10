@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <!-- ./configure step takes *a lot*, be patient :) --> 
+  <autotools id="gettext-runtime" autogen-sh="configure" check-target="false">
+    <branch module="gettext/gettext-0.18.1.1.tar.gz"
+	    repo="gnu.org" version="0.18.1.1">
+      <patch file="gettext-runtime-only.patch" strip="0"/>
+    </branch>
+    <suggests>
+      <dep package="libiconv" />
+    </suggests>
+  </autotools>
+ 
+</moduleset>

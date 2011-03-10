@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <tarball id="libgda" version="4.0.7" autogenargs="--with-java=no">
+    <source href="http://download.gnome.org/sources/libgda/4.0/libgda-4.0.7.tar.bz2"
+            hash="sha256:dffffc6524ecac05a4c891a9c3fca99abce9fb1bc368933a542d6afaf3ba8240"
+            md5sum="875e41166eecde04b075fa451a6773ad" size="8198052"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+    </dependencies>
+  </tarball>
+
+</moduleset>

@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <!-- libpng's autogen.sh isn't brilliant -->
+  <autotools id="libpng" autogen-sh="autoreconf">
+    <branch repo="sourceforge.net"
+	    module="libpng/libpng14/1.4.5/libpng-1.4.5.tar.bz2" version="1.4.5">
+       <!-- Same here, lots of autotools and preprocessor crap that doesn't actually work -->
+       <patch file="libpng-mingw-dll.patch" strip="1"/>
+    </branch>
+    <dependencies>
+      <dep package="zlib"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
