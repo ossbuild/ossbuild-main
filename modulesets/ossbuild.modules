@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+  <include href="freetype.modules"/>
+  <include href="libxml2.modules"/>
+  <include href="libtool.modules"/>
+  <include href="intltool.modules"/>
+  <include href="libiconv.modules"/>
+  <include href="iso-codes.modules"/>
+  <include href="pixman.modules"/>
+  <include href="libgdata.modules"/>
+  <include href="gnutls.modules"/>
+  <include href="libtasn1.modules"/>
+  <include href="libgda.modules"/>
+  <include href="gettext.modules"/>
+  <include href="fontconfig.modules"/>
+  <include href="shared-mime-info.modules"/>
+  <include href="repositories.modules"/>
+  <include href="zlib.modules"/>
+  <include href="gtk-doc.modules"/>
+  <include href="fribidi.modules"/>
+  <include href="liborc.modules"/>
+  <include href="libxslt.modules"/>
+  <include href="libgpg-error.modules"/>
+  <include href="libgcrypt.modules"/>
+  <include href="expat.modules"/>
+  <include href="libpng.modules"/>
+  <include href="libsoup.modules"/>
+</moduleset>
