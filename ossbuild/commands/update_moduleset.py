@@ -51,9 +51,12 @@ class cmd_update_moduleset(Command):
             ])
         self.modulesets = []
 
-    def _find_modulesets(self, _, dirname, names):
+    def _find_modulesets(self, dir, moduleset):
+        names = os.listdir(dir)
         self.modulesets = [x for x in names
-                           if os.path.isfile(x) and x.endswith('.modules')]
+                           if os.path.isfile(os.path.join(dir,x))
+                           and x.endswith('.modules')
+                           and x != "%s.modules" % moduleset]
 
     def _write_moduleset(self, path):
         try:
@@ -62,7 +65,7 @@ class cmd_update_moduleset(Command):
             raise FatalError(_("Could not open the moduleset file: %s.") % e)
         f.write(HEADER)
         for m in self.modulesets:
-            f.writeline('<include href="%s"/>' % m)
+            f.write('  <include href="%s"/>\n' % m)
         f.write("</moduleset>")
 
     def run(self, config, options, args, help=None):
@@ -74,10 +77,12 @@ class cmd_update_moduleset(Command):
         if modulesets_dir is None:
             raise FatalError(_("You must specify a modulesets dir as an option "
                                "if it's not specified in the configuration"))
+        if not os.path.isdir(modulesets_dir):
+            raise FatalError(_("The modulesets path doesn't exists"))
 
         moduleset_path = os.path.join(modulesets_dir, '%s.modules' % moduleset)
 
-        os.path.walk(modulesets_dir, self._find_modulesets, None)
+        self._find_modulesets(modulesets_dir, moduleset)
         self._write_moduleset(moduleset_path)
 
 register_command(cmd_update_moduleset)
