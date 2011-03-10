@@ -1,0 +1,19 @@
+--- gl/Makefile.am	2010-12-15 01:18:21 +0100
++++ gl/Makefile.am.patched	2010-12-15 01:18:42 +0100
+@@ -37,4 +37,4 @@
+ 
+ include gnulib.mk
+ 
+-libgnu_la_LIBADD += ../lgl/liblgnu.la
++libgnu_la_LIBADD += ../lgl/liblgnu.la $(LTLIBINTL)
+--- gl/Makefile.in	2010-12-15 01:17:30 +0100
++++ gl/Makefile.in.patched	2010-12-15 01:21:43 +0100
+@@ -614,7 +614,7 @@
+ AM_CPPFLAGS = -I$(top_srcdir)/lgl -I$(top_builddir)/lgl
+ libgnu_la_SOURCES = c-ctype.h c-ctype.c progname.h progname.c \
+ 	version-etc.h version-etc.c version-etc-fsf.c
+-libgnu_la_LIBADD = $(gl_LTLIBOBJS) ../lgl/liblgnu.la
++libgnu_la_LIBADD = $(gl_LTLIBOBJS) ../lgl/liblgnu.la $(LTLIBINTL)
+ libgnu_la_DEPENDENCIES = $(gl_LTLIBOBJS)
+ EXTRA_libgnu_la_SOURCES = error.c gai_strerror.c getaddrinfo.c \
+ 	getdelim.c getline.c getpass.c inet_ntop.c inet_pton.c \

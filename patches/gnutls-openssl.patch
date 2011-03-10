@@ -1,0 +1,21 @@
+--- libextra/gnutls_openssl.c	Wed Jun 23 01:25:51 2010
++++ libextra/gnutls_openssl-mod.c	Wed Jun 23 01:20:18 2010
+@@ -34,6 +34,7 @@
+ #include "../lib/gnutls_int.h"
+ #include "../lib/random.h"
+ #include "../lib/gnutls_hash_int.h"
++#undef X509_NAME
+ 
+ /* XXX: See lib/gnutls_int.h. */
+ #define GNUTLS_POINTER_TO_INT(_) ((int) GNUTLS_POINTER_TO_INT_CAST (_))
+--- includes/gnutls/openssl.h	Wed Jun 23 01:25:57 2010
++++ includes/gnutls/openssl.h	Wed Jun 23 01:22:18 2010
+@@ -42,6 +42,8 @@
+ 
+ #include <gnutls/gnutls.h>
+ 
++#undef X509_NAME
++
+ /* Extra definitions that do not longer exist in gnutls.
+  */
+ #define GNUTLS_X509_CN_SIZE 256

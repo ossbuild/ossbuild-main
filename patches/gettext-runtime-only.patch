@@ -1,0 +1,44 @@
+--- configure.ac	2010-06-06 14:49:57 +0200
++++ configure.ac.patch	2010-12-14 20:32:03 +0100
+@@ -37,7 +37,7 @@
+ 
+ dnl Checks for library functions.
+ 
+-AC_CONFIG_SUBDIRS([gettext-runtime gettext-tools])
++AC_CONFIG_SUBDIRS([gettext-runtime])
+ 
+ dnl Ensure that "configure --help" lists all the command line options that
+ dnl are usable with the subdir configures. Really AC_CONFIG_SUBDIRS should
+--- configure	2010-12-14 20:31:11 +0100
++++ configure.patch	2010-12-14 20:31:40 +0100
+@@ -707,7 +707,7 @@
+ EMACS
+ EMACSLOADPATH
+ CXXCPP'
+-ac_subdirs_all='gettext-runtime gettext-tools'
++ac_subdirs_all='gettext-runtime'
+ 
+ # Initialize some variables set by options.
+ ac_init_help=
+--- Makefile.in	2010-12-14 19:48:38 +0100
++++ Makefile.in.patch	2010-12-14 20:32:47 +0100
+@@ -211,7 +211,7 @@
+ top_srcdir = @top_srcdir@
+ AUTOMAKE_OPTIONS = 1.5 gnu no-dependencies
+ ACLOCAL_AMFLAGS = -I m4
+-SUBDIRS = gnulib-local gettext-runtime gettext-tools
++SUBDIRS = gnulib-local gettext-runtime
+ 
+ # DJGPP port.
+ 
+--- Makefile.am	2010-06-06 14:49:57 +0200
++++ Makefile.am.patch	2010-12-14 20:32:32 +0100
+@@ -20,7 +20,7 @@
+ ACLOCAL = build-aux/fixaclocal @ACLOCAL@
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-SUBDIRS = gnulib-local gettext-runtime gettext-tools
++SUBDIRS = gnulib-local gettext-runtime 
+ 
+ EXTRA_DIST = \
+   version.sh DEPENDENCIES PACKAGING HACKING ChangeLog.0 autogen.sh \

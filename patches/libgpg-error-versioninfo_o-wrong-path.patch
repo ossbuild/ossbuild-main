@@ -1,0 +1,22 @@
+--- src/Makefile.am	2007-10-29 12:45:05 +0100
++++ src/Makefile.am	2010-12-14 16:13:46 +0100
+@@ -60,7 +60,7 @@
+ 	$(LTRCCOMPILE) -i $< -o $@
+ 
+ gpg_error_res = versioninfo.o
+-gpg_error_res_ldflag = -Wl,$(gpg_error_res)
++gpg_error_res_ldflag = -Wl,.libs/$(gpg_error_res)
+ no_undefined = -no-undefined
+ export_symbols = -export-symbols $(srcdir)/gpg-error.def
+ 
+--- src/Makefile.in	2007-10-29 20:45:23 +0100
++++ src/Makefile.in	2010-12-14 16:14:11 +0100
+@@ -299,7 +299,7 @@
+ @HAVE_W32_SYSTEM_FALSE@gpg_error_res = 
+ @HAVE_W32_SYSTEM_TRUE@gpg_error_res = versioninfo.o
+ @HAVE_W32_SYSTEM_FALSE@gpg_error_res_ldflag = 
+-@HAVE_W32_SYSTEM_TRUE@gpg_error_res_ldflag = -Wl,$(gpg_error_res)
++@HAVE_W32_SYSTEM_TRUE@gpg_error_res_ldflag = -Wl,.libs/$(gpg_error_res)
+ @HAVE_W32_SYSTEM_FALSE@no_undefined = 
+ @HAVE_W32_SYSTEM_TRUE@no_undefined = -no-undefined
+ @HAVE_W32_SYSTEM_FALSE@export_symbols = 

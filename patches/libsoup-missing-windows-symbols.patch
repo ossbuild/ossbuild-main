@@ -1,0 +1,20 @@
+--- libsoup/Makefile.am	2010-11-23 16:45:20 +0100
++++ libsoup/Makefile.am.patched	2010-12-15 15:04:27 +0100
+@@ -94,6 +94,7 @@
+ lib_LTLIBRARIES = libsoup-2.4.la
+ 
+ libsoup_2_4_la_LDFLAGS =	\
++	-export-symbols-regex '^(soup|_soup|soup_|_SOUP_METHOD_|SOUP_METHOD_).*' \
+ 	-version-info $(SOUP_CURRENT):$(SOUP_REVISION):$(SOUP_AGE) -no-undefined
+ 
+ libsoup_2_4_la_LIBADD =			\
+--- libsoup/Makefile.in	2010-11-30 00:02:24 +0100
++++ libsoup/Makefile.in.patched	2010-12-15 15:05:12 +0100
+@@ -404,6 +404,7 @@
+ 
+ lib_LTLIBRARIES = libsoup-2.4.la $(am__append_1)
+ libsoup_2_4_la_LDFLAGS = \
++	-export-symbols-regex '^(soup|_soup|soup_|_SOUP_METHOD_|SOUP_METHOD_).*' \
+ 	-version-info $(SOUP_CURRENT):$(SOUP_REVISION):$(SOUP_AGE) -no-undefined
+ 
+ libsoup_2_4_la_LIBADD = \
