@@ -29,7 +29,7 @@ from jhbuild import config
 __all__ = [ 'Config' ]
 
 _defaults_file = os.path.join(os.path.dirname(__file__), 'defaults.ossbuildrc')
-_default_ossbuildrc = os.path.join(os.environ['HOME'], '/.ossbuild/.ossbuildrc')
+_default_ossbuildrc = os.path.join(os.environ['HOME'], '.ossbuild/ossbuildrc')
 
 __builtin__.__dict__['SRCDIR'] = sys.path[0]
 
@@ -37,5 +37,6 @@ class Config(config.Config):
     _orig_environ = None
 
     def __init__(self, filename=_default_ossbuildrc):
+        print filename
         config._defaults_file = _defaults_file
         config.Config.__init__(self, filename)

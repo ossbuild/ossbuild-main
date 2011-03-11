@@ -72,9 +72,9 @@ def main():
                       help=optparse.SUPPRESS_HELP)
     parser.add_option('-f', '--file', action='store', metavar='CONFIG',
                       type='string', dest='configfile',
-                      default=os.environ.get("OSSBUILDRC",
+                      default=os.environ.get("OSSBUILDRC", ossbuild.config.
                                              os.path.join(os.environ['HOME'],
-                                             '.ossbuildrc')),
+                                             '.ossbuild/ossbuildrc')),
                       help=_('use a non default configuration file'))
     parser.add_option('-m', '--moduleset', action='store', metavar='URI',
                       type='string', dest='moduleset', default=None,
