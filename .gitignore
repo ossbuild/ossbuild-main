@@ -1,0 +1,4 @@
+*pyc
+OSSBuild.egg-info/
+build/
+dist/
