@@ -56,7 +56,8 @@ class cmd_update_moduleset(Command):
         self.modulesets = [os.path.join(x) for x in names
                            if os.path.isfile(os.path.join(dir,x))
                            and x.endswith('.modules')
-                           and x != "%s.modules" % moduleset]
+                           and x != "%s.modules" % moduleset
+                           and x != "bootstrap-msys.modules"]
         self.repos = [os.path.join(dir,x) for x in names
                            if os.path.isfile(os.path.join(dir,x))
                            and x.endswith('.repos')]

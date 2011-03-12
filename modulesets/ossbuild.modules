@@ -31,7 +31,6 @@
   <include href="freetype.modules"/>
   <include href="libxml2.modules"/>
   <include href="libtool.modules"/>
-  <include href="bootstrap-msys.modules"/>
   <include href="intltool.modules"/>
   <include href="libiconv.modules"/>
   <include href="gstreamer.modules"/>
