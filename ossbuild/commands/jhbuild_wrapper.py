@@ -19,6 +19,7 @@
 
 import jhbuild.commands.base as jcommands
 from jhbuild.commands.gui import cmd_gui as _cmd_gui
+from jhbuild.commands.info import cmd_info as _cmd_info
 from ossbuild.commands import register_command
 
 
@@ -58,3 +59,7 @@ register_command(cmd_list)
 class cmd_gui(_cmd_gui):
     pass
 register_command(cmd_gui)
+
+class cmd_info(_cmd_info):
+    pass
+register_command(cmd_info)
