@@ -26,6 +26,7 @@ import logging
 import gettext
 import __builtin__
 __builtin__.__dict__['N_'] = lambda x: x
+__builtin__.__dict__['DATADIR'] = None
 
 import gettext
 
