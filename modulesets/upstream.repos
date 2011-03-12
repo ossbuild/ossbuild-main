@@ -21,3 +21,5 @@
       href="http://www.zlib.net"/>
   <repository type="tarball" name="sourceforge.net"
       href="http://downloads.sourceforge.net/project/"/>
+  <repository type="tarball" name="gstreamer.freedesktop.org"
+    href="http://gstreamer.freedesktop.org/src"/>

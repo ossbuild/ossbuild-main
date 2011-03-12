@@ -25,12 +25,16 @@
       href="http://www.zlib.net"/>
   <repository type="tarball" name="sourceforge.net"
       href="http://downloads.sourceforge.net/project/"/>
+  <repository type="tarball" name="gstreamer.freedesktop.org"
+    href="http://gstreamer.freedesktop.org/src"/>
 
   <include href="freetype.modules"/>
   <include href="libxml2.modules"/>
   <include href="libtool.modules"/>
+  <include href="bootstrap-msys.modules"/>
   <include href="intltool.modules"/>
   <include href="libiconv.modules"/>
+  <include href="gstreamer.modules"/>
   <include href="iso-codes.modules"/>
   <include href="pixman.modules"/>
   <include href="libgdata.modules"/>

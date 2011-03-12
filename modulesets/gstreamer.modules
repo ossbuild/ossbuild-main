@@ -1,0 +1,16 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+  <autotools id="gstreamer" supports-non-srcdir-builds="no">
+    <branch repo="gstreamer.freedesktop.org"
+            version="0.10.32" module="gstreamer/gstreamer-0.10.32.tar.bz2"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
