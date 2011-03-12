@@ -18,6 +18,7 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 import jhbuild.commands.base as jcommands
+from jhbuild.commands.gui import cmd_gui as _cmd_gui
 from ossbuild.commands import register_command
 
 
@@ -53,3 +54,7 @@ register_command(cmd_shell)
 class cmd_list(jcommands.cmd_list):
     pass
 register_command(cmd_list)
+
+class cmd_gui(_cmd_gui):
+    pass
+register_command(cmd_gui)
