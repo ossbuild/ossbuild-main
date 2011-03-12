@@ -1,8 +1,3 @@
-<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
-<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
-<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
-<moduleset>
-
   <repository type="tarball" name="cairo.org"
     href="http://cairographics.org/"/>
   <repository type="tarball" name="dbus"
@@ -26,5 +21,3 @@
       href="http://www.zlib.net"/>
   <repository type="tarball" name="sourceforge.net"
       href="http://downloads.sourceforge.net/project/"/>
-
-</moduleset>

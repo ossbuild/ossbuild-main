@@ -51,12 +51,15 @@ class cmd_update_moduleset(Command):
             ])
         self.modulesets = []
 
-    def _find_modulesets(self, dir, moduleset):
+    def _find_repos_and_modules(self, dir, moduleset):
         names = os.listdir(dir)
-        self.modulesets = [x for x in names
+        self.modulesets = [os.path.join(x) for x in names
                            if os.path.isfile(os.path.join(dir,x))
                            and x.endswith('.modules')
                            and x != "%s.modules" % moduleset]
+        self.repos = [os.path.join(dir,x) for x in names
+                           if os.path.isfile(os.path.join(dir,x))
+                           and x.endswith('.repos')]
 
     def _write_moduleset(self, path):
         try:
@@ -64,6 +67,15 @@ class cmd_update_moduleset(Command):
         except IOError, e:
             raise FatalError(_("Could not open the moduleset file: %s.") % e)
         f.write(HEADER)
+        for repo in self.repos:
+            try:
+                r = open(repo, 'r+')
+                f.write(r.read())
+                r.close()
+            except Exception, e:
+                # FIXME: log warning
+                print e
+        f.write('\n')
         for m in self.modulesets:
             f.write('  <include href="%s"/>\n' % m)
         f.write("</moduleset>")
@@ -82,7 +94,7 @@ class cmd_update_moduleset(Command):
 
         moduleset_path = os.path.join(modulesets_dir, '%s.modules' % moduleset)
 
-        self._find_modulesets(modulesets_dir, moduleset)
+        self._find_repos_and_modules(modulesets_dir, moduleset)
         self._write_moduleset(moduleset_path)
 
 register_command(cmd_update_moduleset)
