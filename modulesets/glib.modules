@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="glib" autogen-sh="configure">
+    <branch module="glib/2.26/glib-2.26.1.tar.bz2" version="2.26.1"
+            repo="gnome.org">
+    <patch file="glib-autogen-libtool-check.patch" strip="1"/>
+    </branch>
+    <dependencies>
+      <dep package="libiconv"/>
+      <!-- gettext provides libintl -->
+      <dep package="gettext-runtime"/> 
+      <dep package="zlib"/> 
+    </dependencies>
+  </autotools>
+
+</moduleset>
