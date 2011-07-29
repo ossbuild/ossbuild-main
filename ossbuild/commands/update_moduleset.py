@@ -53,7 +53,7 @@ class cmd_update_moduleset(Command):
 
     def _find_repos_and_modules(self, dir, moduleset):
         names = os.listdir(dir)
-        self.modulesets = [os.path.join(x) for x in names
+        self.modulesets = [os.path.join(dir, x) for x in names
                            if os.path.isfile(os.path.join(dir,x))
                            and x.endswith('.modules')
                            and x != "%s.modules" % moduleset
