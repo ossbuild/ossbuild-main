@@ -33,7 +33,7 @@ skip = []
 tags = []
 
 # directories
-prefix = '~/ossbuild/dist'
+prefix = os.path.expanduser('~/ossbuild/dist/')
 checkoutroot = os.path.expanduser('~/ossbuild/checkout')
 tarballdir = os.path.expanduser('~/ossbuild/sources')
 buildroot = None     # if set, packages will be build with srcdir!=builddir
