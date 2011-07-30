@@ -1,16 +1,12 @@
 diff -Naur3 -p zlib-1.2.5-orig/win32/Makefile.gcc zlib-1.2.5/win32/Makefile.gcc
 --- zlib-1.2.5-orig/win32/Makefile.gcc	2010-04-19 02:35:55 +0100
 +++ zlib-1.2.5/win32/Makefile.gcc	2010-07-03 02:56:56 +0100
-@@ -25,12 +25,16 @@
+@@ -25,12 +25,12 @@
  
  STATICLIB = libz.a
  SHAREDLIB = zlib1.dll
 -IMPLIB    = libzdll.a
 +IMPLIB    = libz.dll.a
-+
-+BINARY_PATH = /usr/bin
-+LIBRARY_PATH = /usr/lib
-+INCLUDE_PATH = /usr/include
  
  #
  # Set to 1 if shared object needs to be installed

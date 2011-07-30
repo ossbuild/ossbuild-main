@@ -6,7 +6,7 @@
   <autotools id="zlib" version="1.2.5" 
       skip-autogen="true"
       makeargs="-f win32/Makefile.gcc"
-      makeinstallargs="install -f win32/Makefile.gcc INCLUDE_PATH=${prefix}include LIBRARY_PATH=${prefix}lib BIN_PATH=${prefix}bin">
+      makeinstallargs="install -f win32/Makefile.gcc INCLUDE_PATH=${prefix}include LIBRARY_PATH=${prefix}lib BINARY_PATH=${prefix}bin">
     <branch repo="zlib.net" module="zlib-1.2.5.tar.gz" version="1.2.5">
       <!-- Couple of fixes to make mingw build actually work -->
       <patch file="zlib-dll-msys.patch" strip="1"/>
