@@ -1,0 +1,91 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+
+<moduleset>
+  <binary id="ossbuild-gcc" version="r64692">
+    <source href="http://ossbuild.googlecode.com/files/mingw-w64-x86-ossbuild-bin-r164692.tar.lzma"/>
+    <install>
+      <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '/mingw']"/>
+    </install>
+  </binary>
+ 
+  <binary id="activeperl" version="5.12.2.1203">
+    <source href="http://downloads.activestate.com/ActivePerl/releases/5.12.2.1203/ActivePerl-5.12.2.1203-MSWin32-x86-294165.zip"/>
+    <install>
+	    <cmd execute="['mkdir', '-p', '/activeperl']"/>
+	    <cmd execute="['cp', '-r', '@@SRCDIR@@/ActivePerl-5.12.2.1203-MSWin32-x86-294165/perl/*', '/activeperl']"/>
+    </install>
+  </binary>
+
+  <!-- Required for pkg-config -->
+  <binary id="glib-runtime" version="2.28.1-1">
+    <source href="http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28/glib_2.28.1-1_win32.zip" />
+    <install>
+      <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '@@PREFIX@@']" />
+
+      <!-- A cheeky hack: assume that the mingw32-autotools package has
+           been installed, and use the gettext DLL from there against
+           the prebuild GLib
+        -->
+      <cmd execute="['cp', '/mingw/bin/libintl-8.dll', '@@PREFIX@@/bin/intl.dll']" />
+    </install>
+  </binary>
+
+  <!-- Do not upgrade to 0.25 - see http://bugs.freedesktop.org/show_bug.cgi?id=17053 -->
+  <binary id="pkg-config-bin" version="0.23-3">
+    <source href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config_0.23-3_win32.zip"/>
+    <install>
+      <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '@@PREFIX@@']"/>
+    </install>
+  </binary>
+  <binary id="pkg-config-dev" version="0.23-3">
+    <source href="http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/pkg-config-dev_0.23-3_win32.zip" />
+    <install>
+      <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '@@PREFIX@@']"/>
+    </install>
+  </binary>
+  <metamodule id="pkg-config">
+    <dependencies>
+      <dep package="glib-runtime" />
+      <dep package="pkg-config-bin" />
+      <dep package="pkg-config-dev" />
+    </dependencies>
+  </metamodule>
+
+  <binary id="gtk-doc-fake" version="1.17">
+    <source href="http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.17/gtk-doc-1.17.tar.bz2"/>
+    <install>
+      <cmd execute="['cp', '@@SRCDIR@@/gtk-doc-1.17/gtk-doc.m4', '@@PREFIX@@/share/aclocal/']"/>
+
+      <cmd execute="['sed',  
+          '-es,@VERSION@,1.17,',
+          '-es,@PACKAGE@,gtk-doc,',
+          '-es,@prefix@,@@PREFIX@@,',
+          '-es,@datarootdir@,@@PREFIX@@share,',
+          '-es,@datadir@,@@PREFIX@@share,',
+          '@@SRCDIR@@/gtk-doc-1.17/gtkdocize.in']"
+          output-file='@@PREFIX@@/bin/gtkdocize'/>
+      <cmd execute="['sed',  
+          '-es,@PERL@,/bin/perl,',
+          '-es,@VERSION@,1.17,',
+          '-es,@PACKAGE@,gtk-doc,',
+          '-es,@prefix@,@@PREFIX@@,',
+          '-es,@datarootdir@,@@PREFIX@@share,',
+          '-es,@datadir@,@@PREFIX@@share,',
+          '@@SRCDIR@@/gtk-doc-1.17/gtkdoc-rebase.in']"
+          output-file='@@PREFIX@@/bin/gtkdoc-rebase'/>
+      <cmd execute="['mkdir', '-p', '@@PREFIX@@/share/gtk-doc/data/']"/>
+      <cmd execute="['cp', '@@SRCDIR@@/gtk-doc-1.17/gtk-doc.make', '@@PREFIX@@/share/gtk-doc/data/']"/>
+      <cmd execute="['cp', '@@SRCDIR@@/gtk-doc-1.17/gtk-doc.notmpl.make', '@@PREFIX@@/share/gtk-doc/data/']"/>
+    </install>
+  </binary>
+
+  <metamodule id="meta-bootstrap">
+    <dependencies>
+      <dep package="pkg-config" />
+      <dep package="gtk-doc-fake" />
+      <dep package="ossbuild-gcc" />
+      <dep package="activeperl" />
+    </dependencies>
+  </metamodule>
+</moduleset>
