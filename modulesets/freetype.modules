@@ -3,8 +3,10 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <tarball id="freetype" version="2.4.4">
-    <source href="http://download.savannah.gnu.org/releases/freetype/freetype-2.4.4.tar.gz"/>
-  </tarball>
+  <autotools id="freetype" autogen-sh="configure" supports-non-srcdir-builds="no">
+    <branch module="freetype/freetype-2.4.4.tar.gz" version="2.4.4"
+            repo="savannah.gnu.org">
+    </branch>
+  </autotools>
  
 </moduleset>
