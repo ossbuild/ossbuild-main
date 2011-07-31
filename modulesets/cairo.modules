@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="cairo" autogen-args="--enable-xlib=yes --enable-xlib-xrender=no --enable-png=yes --enable-ft=yes --enable-pdf=yes --enable-svg=yes" autogen-sh="configure">
+    <branch module="cairo-1.10.2.tar.gz" version="1.10.2"
+            repo="cairographics.org">
+    </branch>
+    <dependencies>
+      <dep package="zlib"/>
+      <dep package="fontconfig"/>
+      <dep package="freetype"/> 
+      <dep package="pixman"/> 
+      <dep package="libpng"/> 
+    </dependencies>
+  </autotools>
+
+</moduleset>

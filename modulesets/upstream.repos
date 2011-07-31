@@ -29,3 +29,5 @@
     href="http://download.savannah.gnu.org/releases/"/>
   <repository type="tarball" name="entropywave.com"
     href="http://code.entropywave.com/download/"/>
+  <repository type="tarball" name="cairographics.org"
+    href="http://cairographics.org/releases/"/>
