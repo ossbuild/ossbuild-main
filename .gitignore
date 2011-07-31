@@ -2,3 +2,5 @@
 OSSBuild.egg-info/
 build/
 dist/
+*~
+*swp
