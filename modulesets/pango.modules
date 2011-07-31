@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="pango" autogen-args="--with-included-modules" autogen-sh="configure">
+    <branch module="pango/1.29/pango-1.29.3.tar.bz2" version="1.29.3"
+            repo="gnome.org">
+    </branch>
+    <dependencies>
+      <dep package="fontconfig"/>
+      <dep package="freetype"/> 
+    </dependencies>
+  </autotools>
+
+</moduleset>
