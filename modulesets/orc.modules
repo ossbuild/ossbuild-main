@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="orc" autogen-sh="configure">
+    <branch module="orc/orc-0.4.14.tar.gz"
+	    repo="entropywave.com" version="0.4.14">
+      <patch file="orc-0_4_14-examples.patch" strip="0"/>
+    </branch>
+  </autotools>
+</moduleset>
