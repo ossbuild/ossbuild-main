@@ -4,9 +4,8 @@
 <moduleset>
 
   <autotools id="glib" autogen-sh="configure">
-    <branch module="glib/2.26/glib-2.26.1.tar.bz2" version="2.26.1"
+    <branch module="glib/2.28/glib-2.28.8.tar.bz2" version="2.28.8"
             repo="gnome.org">
-    <patch file="glib-autogen-libtool-check.patch" strip="1"/>
     </branch>
     <dependencies>
       <dep package="libiconv"/>
