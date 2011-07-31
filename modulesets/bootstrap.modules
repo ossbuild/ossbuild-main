@@ -9,11 +9,13 @@
     </install>
   </binary>
  
-  <binary id="activeperl" version="5.12.2.1203">
-    <source href="http://downloads.activestate.com/ActivePerl/releases/5.12.2.1203/ActivePerl-5.12.2.1203-MSWin32-x86-294165.zip"/>
+  <binary id="xml-simple" version="2.18">
+    <source href="http://cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.18.tar.gz"/>
     <install>
-	    <cmd execute="['mkdir', '-p', '/activeperl']"/>
-	    <cmd execute="['cp', '-r', '@@SRCDIR@@/ActivePerl-5.12.2.1203-MSWin32-x86-294165/perl/*', '/activeperl']"/>
+	    <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '/']"/>
+	    <!-- HACK: Beeing a multi-lib toolchain, w32 lib's should be in lib32.
+		 Make a copy until I talk with David to fix that-->
+	    <cmd execute="['cp', '-r', '/mingw//i686-w64-mingw32/lib/*', '/ming//i686-w64-mingw32/lib32/']"/>
     </install>
   </binary>
 
@@ -85,7 +87,7 @@
       <dep package="pkg-config" />
       <dep package="gtk-doc-fake" />
       <dep package="ossbuild-gcc" />
-      <dep package="activeperl" />
+      <dep package="xml-simple" />
     </dependencies>
   </metamodule>
 </moduleset>
