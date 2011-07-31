@@ -6,7 +6,7 @@
   <!-- libpng's autogen.sh isn't brilliant -->
   <autotools id="libpng" autogen-sh="autoreconf">
     <branch repo="sourceforge.net"
-	    module="libpng/libpng14/1.4.5/libpng-1.4.5.tar.bz2" version="1.4.5">
+	    module="libpng/libpng14/1.4.8/libpng-1.4.8.tar.bz2" version="1.4.8">
        <!-- Same here, lots of autotools and preprocessor crap that doesn't actually work -->
        <patch file="libpng-mingw-dll.patch" strip="1"/>
     </branch>
