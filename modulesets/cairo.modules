@@ -6,6 +6,7 @@
   <autotools id="cairo" autogen-args="--enable-xlib=yes --enable-xlib-xrender=no --enable-png=yes --enable-ft=yes --enable-pdf=yes --enable-svg=yes" autogen-sh="configure">
     <branch module="cairo-1.10.2.tar.gz" version="1.10.2"
             repo="cairographics.org">
+       <patch file="cairo-ffs.patch" strip="1"/>
     </branch>
     <dependencies>
       <dep package="zlib"/>
