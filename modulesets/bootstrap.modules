@@ -6,16 +6,16 @@
     <source href="http://ossbuild.googlecode.com/files/mingw-w64-x86-ossbuild-bin-r164692.tar.lzma"/>
     <install>
       <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '/mingw']"/>
+      <!-- HACK: Beeing a multi-lib toolchain, w32 lib's should be in lib32.
+           Make a copy until I talk with David to fix that-->
+      <cmd execute="['cp', '-r', '/mingw/i686-w64-mingw32/lib/*', '/mingw/i686-w64-mingw32/lib32/']"/>
     </install>
   </binary>
- 
+
   <binary id="xml-simple" version="2.18">
     <source href="http://cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.18.tar.gz"/>
     <install>
-	    <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '/']"/>
-	    <!-- HACK: Beeing a multi-lib toolchain, w32 lib's should be in lib32.
-		 Make a copy until I talk with David to fix that-->
-	    <cmd execute="['cp', '-r', '/mingw//i686-w64-mingw32/lib/*', '/ming//i686-w64-mingw32/lib32/']"/>
+      <cmd execute="['cp', '-r', '@@SRCDIR@@/*', '/']"/>
     </install>
   </binary>
 
