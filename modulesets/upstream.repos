@@ -31,3 +31,5 @@
     href="http://code.entropywave.com/download/"/>
   <repository type="tarball" name="cairographics.org"
     href="http://cairographics.org/releases/"/>
+  <repository type="tarball" name="wavpack.com"
+    href="http://www.wavpack.com/"/>
