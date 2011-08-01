@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="flac" autogen-sh="./configure">
+    <branch repo="sourceforge.net"
+	    module="flac/flac-src/flac-1.2.1-src/flac-1.2.1.tar.gz"
+	    version="1.2.1">
+    </branch>
+    <dependencies>
+      <dep package="libogg"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
