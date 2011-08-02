@@ -9,7 +9,6 @@ if 'GTK_PATH' in os.environ.keys():
 
 # module directory
 modulesets_dir = os.path.join(os.environ['HOME'], '.ossbuild', 'modulesets')
-print modulesets_dir
 
 # what modules to build?
 moduleset = 'ossbuild'
