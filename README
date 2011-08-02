@@ -1,0 +1,44 @@
+OSSBuild-mingw
+--------------
+
+OSSBuild-mingw provides a build system based on jhbuild to build open source software using Mingw/Msys for Windows. It extends jhbuild wrapping several of its commands and providing new ones that are specific to this build system. It also provides a default configuration and a set of modules that is ready to use on Windows.
+
+Prerequisites
+-------------
+
+ * Git: http://code.google.com/p/msysgit/
+ * Python (2.7): http://www.python.org/download/windows/
+ * setuptools:  http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe#md5=57e1e64f6b7c7f1d2eddfc9746bbaf20
+ * PyGtk (all-in-one installer): http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/pygtk-all-in-one-2.24.0.win32-py2.7.msi
+ * MinGW-get (install all packages): http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/
+
+We reccomend using Console 2.00 instead of the default MinGW's terminal emulator. To install it run:
+  $ mingw-get install msys-console
+  $ console-config
+
+
+Install ossbuild
+---------------
+1. Checkout sources:
+  $ git clone git@github.com:ossbuild/ossbuild-main.git /c/ossbuild-mingw
+  $ git submodule init
+  $ git submodule update
+
+2. Install
+  $ . ./env                  # sets env variables
+  $ python setup.py install
+  $ ossbuild setup
+  
+Using ossbuild
+--------------
+Since ossbuild uses jhbuild, you can use most of the jhbuild commands (see http://developer.gnome.org/jhbuild/unstable/)
+
+1. List modules
+  $ ossbuild list -a
+
+2. Update modules list
+  $ ossbuild update_moduleset
+
+3. Build
+  $ ossbuild build gstreamer
+
