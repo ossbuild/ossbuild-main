@@ -1,6 +1,10 @@
 PYTHON_PATH=/c/Python27
 SCRIPTS_PATH=$PYTHON_PATH/Scripts
-JHBUILD_PATH=`pwd`/jhbuild/
+WORK_DIR="$( cd "$( dirname "$0" )" && pwd )"
+
+JHBUILD_PATH=$WORK_DIR/jhbuild/
 
 export PATH=$PYTHON_PATH:$SCRIPTS_PATH:$PATH
-export PYTHONPATH=$JHBUILD_PATH
+export PYTHONPATH=$JHBUILD_PATH:$WORK_DIR
+
+alias ossbuild='python ossbuild/main.py'

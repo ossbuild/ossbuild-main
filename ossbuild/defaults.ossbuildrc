@@ -43,8 +43,10 @@ buildroot = None     # if set, packages will be build with srcdir!=builddir
 # substituted with the srcdir base component.
 builddir_pattern = '%s'
 
+host = 'i586-mingw32msvc'
+
 # override environment variables, command line arguments, etc
-autogenargs = '--disable-static --disable-gtk-doc'
+autogenargs = '--host=%s --disable-static --disable-gtk-doc' % host
 cmakeargs = ''
 makeargs = ''
 cflags = ''
@@ -179,3 +181,12 @@ if platform.system() == 'WINDOWS':
 	os.environ['LDFLAGS'] = "-Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc-v2 -Wl,--kill-at "
 	os.environ['CXXFLAGS']=os.environ['CFLAGS']
 	os.environ['PATH']= ':'.join([os.environ['PATH'], '/opt/activeperl/bin'])
+else:
+	os.environ['CC']='i586-mingw32msvc-gcc'
+	os.environ['CXX']='i586-mingw32msvc-g++'
+	os.environ['CPP']='i586-mingw32msvc-cpp'
+	os.environ['RANLIB']='i586-mingw32msvc-ranlib'
+	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501"
+	os.environ['CPPFLAGS'] = "-DMINGW32 -D__MINGW32__"
+	os.environ['LDFLAGS'] = "-Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc-v2 -Wl,--kill-at "
+	os.environ['CXXFLAGS']=os.environ['CFLAGS']
