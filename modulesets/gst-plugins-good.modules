@@ -1,0 +1,24 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+  <autotools id="gst-plugins-good">
+    <branch repo="gstreamer.freedesktop.org"
+            version="0.10.30" module="gst-plugins-good/gst-plugins-good-0.10.30.tar.bz2"/>
+    <dependencies>
+      <dep package="cairo"/>
+      <dep package="glib"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="libpng"/>
+      <dep package="libshout"/>
+      <dep package="libsoup"/>
+      <dep package="libspeex"/>
+      <dep package="orc"/>
+      <dep package="wavpack"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
