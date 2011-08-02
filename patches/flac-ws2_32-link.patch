@@ -1,0 +1,22 @@
+--- src/libFLAC/Makefile.in	2011-08-02 20:48:00 +0200
++++ src/libFLAC/Makefile.in	2011-08-02 20:48:32 +0200
+@@ -279,7 +279,7 @@
+ @FLaC__HAS_OGG_TRUE@	ogg_mapping.c
+ 
+ # see 'http://www.gnu.org/software/libtool/manual.html#Libtool-versioning' for numbering convention
+-libFLAC_la_LDFLAGS = -version-info 10:0:2 -lm $(LOCAL_EXTRA_LDFLAGS)
++libFLAC_la_LDFLAGS = -version-info 10:0:2 -lm -lws2_32 $(LOCAL_EXTRA_LDFLAGS)
+ libFLAC_la_SOURCES = \
+ 	bitmath.c \
+ 	bitreader.c \
+--- src/libFLAC++/Makefile.in	2011-08-02 21:09:03 +0200
++++ src/libFLAC++/Makefile.in	2011-08-02 21:10:08 +0200
+@@ -251,7 +251,7 @@
+ 
+ 
+ # see 'http://www.gnu.org/software/libtool/manual.html#Libtool-versioning' for numbering convention
+-libFLAC___la_LDFLAGS = -version-info 8:0:2
++libFLAC___la_LDFLAGS = -version-info 8:0:2 -lws2_32
+ libFLAC___la_LIBADD = ../libFLAC/libFLAC.la
+ 
+ libFLAC___la_SOURCES = \

@@ -7,6 +7,7 @@
     <branch repo="sourceforge.net"
 	    module="flac/flac-src/flac-1.2.1-src/flac-1.2.1.tar.gz"
 	    version="1.2.1">
+      <patch file="flac-ws2_32-link.patch"/>
     </branch>
     <dependencies>
       <dep package="libogg"/>
