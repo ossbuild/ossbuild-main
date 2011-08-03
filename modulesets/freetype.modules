@@ -3,7 +3,7 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="freetype" autogen-sh="configure" supports-non-srcdir-builds="no">
+  <autotools id="freetype" skip-autogen="never">
     <branch module="freetype/freetype-2.4.4.tar.gz" version="2.4.4"
             repo="savannah.gnu.org">
     </branch>
