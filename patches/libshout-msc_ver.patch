@@ -1,0 +1,8 @@
+--- include/os.h	2005-06-27 23:33:22.000000000 +0200
++++ include/os.h	2011-08-23 11:18:43.248303527 +0200
+@@ -1,4 +1,4 @@
+-#ifdef _WIN32
++#ifdef _MSC_VER
+ typedef __int64 int64_t;
+ typedef unsigned __int64 uint64_t;
+ typedef unsigned __int32 uint32_t;
