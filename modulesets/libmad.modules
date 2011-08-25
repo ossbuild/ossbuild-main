@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libmad">
+    <branch repo="sourceforge.net"
+            module="mad/libmad/0.15.1b/libmad-0.15.1b.tar.gz"
+            version="0.15.1b">
+    </branch>
+  </autotools>
+
+</moduleset>
