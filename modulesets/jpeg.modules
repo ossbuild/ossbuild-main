@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="jpeg">
+    <branch repo="ijg.org"
+            module="jpegsrc.v8b.tar.gz" version="8.b"
+            checkoutdir="jpeg-8b">
+    </branch>
+  </autotools>
+
+</moduleset>

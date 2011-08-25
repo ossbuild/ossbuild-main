@@ -35,3 +35,5 @@
     href="http://www.wavpack.com/"/>
   <repository type="tarball" name="fontconfig.org"
     href="http://www.fontconfig.org/release/"/>
+  <repository type="tarball" name="ijg.org"
+    href="http://www.ijg.org/files/"/>
