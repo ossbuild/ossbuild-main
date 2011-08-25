@@ -195,3 +195,4 @@ else:
 	os.environ['LDFLAGS'] = "-Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc-v2 -Wl,--kill-at -Wl,--no-undefined -no-undefined"
 	os.environ['CXXFLAGS']=os.environ['CFLAGS']
 	os.environ['PKG_CONFIG_LIBDIR']=os.path.join(prefix, 'lib', 'pkgconfig')
+	os.environ['PKG_CONFIG_PATH']=os.path.join(prefix, 'lib', 'pkgconfig')
