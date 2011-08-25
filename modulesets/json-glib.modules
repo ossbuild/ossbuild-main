@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="json-glib">
+    <branch module="json-glib/0.12/json-glib-0.12.6.tar.bz2" version="0.12.6"
+            repo="gnome.org">
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
