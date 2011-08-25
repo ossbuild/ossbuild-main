@@ -37,3 +37,9 @@
     href="http://www.fontconfig.org/release/"/>
   <repository type="tarball" name="ijg.org"
     href="http://www.ijg.org/files/"/>
+  <repository type="tarball" name="taglib"
+    href="http://developer.kde.org/~wheeler/files/src/"/>
+  <repository type="tarball" name="a52"
+    href="http://liba52.sourceforge.net/files/"/>
+  <repository type="tarball" name="videolan.org"
+    href="ftp://ftp.videolan.org/pub/"/>
