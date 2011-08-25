@@ -15,6 +15,7 @@
       <dep package="x264"/>
       <dep package="libmpeg2"/>
       <dep package="libid3tag"/>
+      <dep package="lame"/>
     </dependencies>
   </autotools>
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="lame">
+    <branch repo="sourceforge.net"
+            module="lame/lame/3.98.4/lame-3.98.4.tar.gz"
+            version="3.98.4">
+    </branch>
+  </autotools>
+
+</moduleset>
