@@ -20,7 +20,7 @@ We reccomend using Console 2.00 instead of the default MinGW's terminal emulator
 Install ossbuild
 ---------------
 1. Checkout sources:
-  $ git clone git@github.com:ossbuild/ossbuild-main.git /c/ossbuild-mingw
+  $ git clone git://github.com/ossbuild/ossbuild-main.git /c/ossbuild-mingw
   $ git submodule init
   $ git submodule update
 
@@ -28,7 +28,7 @@ Install ossbuild
   $ . ./env                  # sets env variables
   $ python setup.py install
   $ ossbuild setup
-  
+
 Using ossbuild
 --------------
 Since ossbuild uses jhbuild, you can use most of the jhbuild commands (see http://developer.gnome.org/jhbuild/unstable/)
