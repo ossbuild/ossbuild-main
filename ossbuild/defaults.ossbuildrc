@@ -189,6 +189,7 @@ else:
 	os.environ['CXX']='i586-mingw32msvc-g++'
 	os.environ['CPP']='i586-mingw32msvc-cpp'
 	os.environ['RANLIB']='i586-mingw32msvc-ranlib'
+	os.environ['AR']='i586-mingw32msvc-ar'
 	os.environ['WINDRES']='i586-mingw32msvc-windres'
 	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501"
 	os.environ['CPPFLAGS'] = "-DMINGW32 -D__MINGW32__"
