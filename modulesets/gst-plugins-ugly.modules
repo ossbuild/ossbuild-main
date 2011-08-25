@@ -16,6 +16,7 @@
       <dep package="libmpeg2"/>
       <dep package="libid3tag"/>
       <dep package="lame"/>
+      <dep package="twolame"/>
     </dependencies>
   </autotools>
 
