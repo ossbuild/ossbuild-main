@@ -68,3 +68,7 @@ register_command(cmd_info)
 class cmd_bootstrap(_cmd_bootstrap):
     pass
 register_command(cmd_bootstrap)
+
+class cmd_dot(jcommands.cmd_dot):
+    pass
+register_command(cmd_dot)
