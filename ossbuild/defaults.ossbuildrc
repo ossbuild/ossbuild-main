@@ -44,7 +44,7 @@ buildroot = None     # if set, packages will be build with srcdir!=builddir
 builddir_pattern = '%s'
 
 # override environment variables, command line arguments, etc
-if platform.system() == 'WINDOWS':
+if platform.system() == 'Windows':
     autogenargs = '--disable-static --disable-gtk-doc'
 else:
     autogenargs = '--host=i586-mingw32msvc --build=i486-linux-gnu --disable-static --disable-gtk-doc'
@@ -179,7 +179,7 @@ dvcs_mirror_dir = None
 os.environ['PREFIX']= prefix
 
 # default flags
-if platform.system() == 'WINDOWS': 
+if platform.system() == 'Windows': 
 	os.environ['RANLIB']='ranlib'
 	os.environ['WINDRES']='windres'
 	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501"
@@ -193,6 +193,7 @@ else:
 	os.environ['CPP']='i586-mingw32msvc-cpp'
 	os.environ['RANLIB']='i586-mingw32msvc-ranlib'
 	os.environ['AR']='i586-mingw32msvc-ar'
+	os.environ['AS']='i586-mingw32msvc-as'
 	os.environ['WINDRES']='i586-mingw32msvc-windres'
 	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501"
 	os.environ['CPPFLAGS'] = "-DMINGW32 -D__MINGW32__"
