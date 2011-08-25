@@ -6,7 +6,9 @@
 
   <autotools id="wavpack">
     <branch repo="wavpack.com"
-            version="4.60.1" module="wavpack-4.60.1.tar.bz2"/>
+            version="4.60.1" module="wavpack-4.60.1.tar.bz2">
+      <patch file="wavpack-stat64.patch"/>
+    </branch>
   </autotools>
 
 </moduleset>
