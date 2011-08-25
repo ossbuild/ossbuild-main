@@ -1,0 +1,9 @@
+--- atk/atk.symbols.old	2011-08-23 13:59:22.324164300 +0200
++++ atk/atk.symbols	2011-08-23 13:59:42.220164303 +0200
+@@ -239,5 +239,6 @@
+ 	atk_value_get_current_value
+ 	atk_value_get_maximum_value
+ 	atk_value_get_minimum_value
++	atk_value_get_minimum_increment
+ 	atk_value_get_type
+ 	atk_value_set_current_value

@@ -7,6 +7,7 @@
   <autotools id="atk">
     <branch repo="gnome.org"
             version="1.30" module="atk/1.30/atk-1.30.0.tar.bz2" >
+      <patch file="atk-1.30-missing-symbols.patch" />
     </branch>
     <dependencies>
       <dep package="glib"/>
