@@ -4,7 +4,7 @@
 <moduleset>
 
   <autotools id="libsoup" autogen-sh="configure"
-	     autogenargs =  "--enable-ssl --enable-debug=no --disable-more-warnings">
+             autogenargs =  "--without-gnome --enable-ssl --enable-debug=no --disable-more-warnings">
     <branch module="libsoup/2.32/libsoup-2.32.2.tar.bz2" version="2.32.2"
             repo="gnome.org">
     <patch file="libsoup-missing-windows-symbols.patch" strip="0"/>
