@@ -10,6 +10,7 @@
     <dependencies>
       <dep package="fontconfig"/>
       <dep package="freetype"/> 
+      <dep package="cairo"/> 
     </dependencies>
   </autotools>
 
