@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+  <autotools id="gdk-pixbuf" autogenargs="--without-libtiff --without-libjpeg">
+    <branch repo="gnome.org"
+            version="2.22" module="gdk-pixbuf/2.22/gdk-pixbuf-2.22.0.tar.bz2" >
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
