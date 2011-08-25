@@ -17,6 +17,7 @@
       <dep package="libid3tag"/>
       <dep package="lame"/>
       <dep package="twolame"/>
+      <dep package="libmad"/>
     </dependencies>
   </autotools>
 
