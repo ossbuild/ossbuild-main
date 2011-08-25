@@ -6,3 +6,14 @@
  typedef __int64 int64_t;
  typedef unsigned __int64 uint64_t;
  typedef unsigned __int32 uint32_t;
+--- include/shout/shout.h.in	2011-08-23 16:49:15.100164649 +0200
++++ include/shout/shout.h.in	2011-08-23 16:50:15.732164650 +0200
+@@ -22,7 +22,7 @@
+ #define __LIBSHOUT_SHOUT_H__
+ 
+ #include <sys/types.h>
+-#ifdef WIN32
++#ifdef _MSC_VER
+ #include <os.h>
+ #endif
+ 
