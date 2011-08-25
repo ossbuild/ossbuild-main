@@ -175,6 +175,9 @@ ignore_suggests = False
 # local directory for DVCS mirror (git only atm)
 dvcs_mirror_dir = None
 
+# Trick to use prefix in projects that don't have configure
+os.environ['PREFIX']= prefix
+
 # default flags
 if platform.system() == 'WINDOWS': 
 	os.environ['RANLIB']='ranlib'
