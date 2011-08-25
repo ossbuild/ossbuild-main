@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="a52">
+    <branch repo="a52"
+            module="a52dec-0.7.4.tar.gz"
+            version="0.7.4">
+      <patch file="liba52-fixed.patch"/>
+    </branch>
+  </autotools>
+
+</moduleset>
