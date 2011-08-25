@@ -1,14 +1,5 @@
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: adler32.o
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: compress.o
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: crc32.o
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: deflate.o
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: gzclose.o
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: gzlib.o
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: gzread.o
-Sólo en /home/andoni/ossbuild/checkout/zlib-1.2.5/: gzwrite.o
-diff -ru zlib-1.2.5//win32/Makefile.gcc /home/andoni/ossbuild/checkout/zlib-1.2.5//win32/Makefile.gcc
---- zlib-1.2.5//win32/Makefile.gcc	2010-04-19 03:35:55.000000000 +0200
-+++ /home/andoni/ossbuild/checkout/zlib-1.2.5//win32/Makefile.gcc	2011-08-03 11:23:50.000000000 +0200
+--- win32/Makefile.gcc	2010-04-19 03:35:55.000000000 +0200
++++ win32/Makefile.gcc	2011-08-03 11:23:50.000000000 +0200
 @@ -25,18 +25,21 @@
  
  STATICLIB = libz.a
