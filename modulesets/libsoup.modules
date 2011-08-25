@@ -8,6 +8,7 @@
     <branch module="libsoup/2.32/libsoup-2.32.2.tar.bz2" version="2.32.2"
             repo="gnome.org">
     <patch file="libsoup-missing-windows-symbols.patch" strip="0"/>
+    <patch file="libshoup-no-tests.patch" strip="0"/>
     </branch>
     <dependencies>
       <dep package="glib"/>

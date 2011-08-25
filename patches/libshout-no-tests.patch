@@ -1,0 +1,11 @@
+--- Makefile.in	2011-08-23 15:36:04.828164499 +0200
++++ Makefile.in	2011-08-23 15:36:23.884164500 +0200
+@@ -305,7 +305,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ ACLOCAL_AMFLAGS = -I m4
+-SUBDIRS = libsoup tests docs
++SUBDIRS = libsoup docs
+ EXTRA_DIST = \
+ 	libsoup-2.4.pc.in	\
+ 	libsoup-gnome-2.4.pc.in	\
