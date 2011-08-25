@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libid3tag">
+    <branch repo="sourceforge.net"
+            module="mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz"
+            version="0.15.1b">
+    </branch>
+  </autotools>
+
+</moduleset>
