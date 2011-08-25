@@ -4,7 +4,10 @@
 <!-- vim:set ts=2 expandtab: -->
 <moduleset>
 
-  <autotools id="gst-plugins-good">
+  <autotools id="gst-plugins-good" autogenargs="--disable-dv1394 --disable-esdsink --disable-pulseaudio
+                                               --disable-gst_v4l2 --disable-ximagesrc --disable-jack
+                                               --disable-sunaudio --disable-oss4 --disable-oss
+                                               --disable-osx_audio --disable-osx_video --disable-libdv">
     <branch repo="gstreamer.freedesktop.org"
             version="0.10.30" module="gst-plugins-good/gst-plugins-good-0.10.30.tar.bz2"/>
     <dependencies>
