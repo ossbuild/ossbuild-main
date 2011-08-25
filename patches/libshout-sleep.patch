@@ -1,0 +1,13 @@
+--- examples/nonblocking.c.old	2011-08-23 15:21:54.328164470 +0200
++++ examples/nonblocking.c	2011-08-23 15:23:22.628164473 +0200
+@@ -9,6 +9,10 @@
+ #include <unistd.h>
+ 
+ #include <shout/shout.h>
++#ifdef _WIN32
++#include "windows.h"
++#define sleep(x) Sleep(x)
++#endif
+ 
+ int main()
+ {
