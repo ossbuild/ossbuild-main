@@ -1,0 +1,23 @@
+--- /home/andoni/ossbuild/checkout/clutter-1.6.16/clutter/cogl/cogl/winsys/cogl-win32.c	2011-08-25 16:00:10.572170425 +0200
++++ /home/andoni/ossbuild/checkout/clutter-1.6.16/clutter/cogl/cogl/winsys/cogl-win32.c	2011-08-25 16:01:39.516170427 +0200
+@@ -26,6 +26,9 @@
+ #endif
+ 
+ #include "cogl.h"
++#ifndef _MSC_VER
++#include "windows.h"
++#endif
+ 
+ CoglFuncPtr
+ _cogl_winsys_get_proc_address (const char *name)
+--- /home/andoni/ossbuild/checkout/clutter-1.6.16/configure	2011-08-25 15:57:38.428170419 +0200
++++ /home/andoni/ossbuild/checkout/clutter-1.6.16/configure	2011-08-25 15:58:07.244170420 +0200
+@@ -12825,7 +12825,7 @@
+          ;; #(
+   win32) :
+ 
+-          cogl_gl_headers="GL/gl.h"
++          cogl_gl_headers="GL/glew.h"
+           CLUTTER_STAGE_TYPE="CLUTTER_TYPE_STAGE_WIN32"
+ 
+ $as_echo "#define HAVE_CLUTTER_WIN32 1" >>confdefs.h

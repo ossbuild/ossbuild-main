@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="clutter" autogenargs="--with-flavour=win32">
+    <branch module="clutter/1.6/clutter-1.6.16.tar.bz2" version="1.6.16"
+            repo="clutter-project.org">
+      <patch file="clutter-fix-win32-build.patch"/>
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="atk"/>
+      <dep package="pango"/>
+      <dep package="cairo"/>
+      <dep package="gdk-pixbuf"/>
+      <dep package="glew"/>
+      <dep package="json-glib"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
