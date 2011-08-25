@@ -32,6 +32,7 @@ _defaults_file = os.path.join(os.path.dirname(__file__), 'defaults.ossbuildrc')
 _default_ossbuildrc = os.path.join(os.environ['HOME'], '.ossbuild/ossbuildrc')
 
 __builtin__.__dict__['SRCDIR'] = sys.path[0]
+__builtin__.__dict__['PKGDATADIR'] = None
 
 class Config(config.Config):
     _orig_environ = None
