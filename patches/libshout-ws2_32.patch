@@ -1,0 +1,22 @@
+--- m4/xiph_net.m4	2011-08-23 17:48:17.004164768 +0200
++++ m4/xiph_net.m4	2011-08-23 17:49:10.256164770 +0200
+@@ -7,7 +7,7 @@
+ AC_CHECK_HEADERS([sys/select.h sys/uio.h])
+ AC_CHECK_HEADER([winsock2.h],
+   [AC_DEFINE([HAVE_WINSOCK2_H], [1], [Define if you have winsock2.h on MINGW])
+-   LIBS="$LIBS -lwsock32"])
++   LIBS="$LIBS -lws2_32"])
+ 
+ # These tests are ordered based on solaris 8 tests
+ AC_SEARCH_LIBS([sethostent], [nsl],
+--- configure	2011-08-23 17:50:53.996164773 +0200
++++ configure	2011-08-23 17:50:39.180164772 +0200
+@@ -21813,7 +21813,7 @@
+ #define HAVE_WINSOCK2_H 1
+ _ACEOF
+ 
+-   LIBS="$LIBS -lwsock32"
++   LIBS="$LIBS -lws2_32"
+ fi
+ 
+ 

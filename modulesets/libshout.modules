@@ -4,11 +4,14 @@
 <!-- vim:set ts=2 expandtab: -->
 <moduleset>
 
-  <autotools id="libshout">
+  <autotools id="libshout" autogen-sh="autogen.sh" skip-autogen="never" >
     <branch repo="xiph.org"
             version="2.2.2" module="libshout/libshout-2.2.2.tar.gz">
       <patch file="libshout-msc_ver.patch" strip="0"/>
       <patch file="libshout-sleep.patch" strip="0"/>
+      <patch file="libshout-ws2_32.patch" strip="0"/>
+      <patch file="libshout-autogen.patch" strip="0"/>
+      <patch file="libshout-missing-speex-include.patch" strip="0"/>
     </branch>
     <dependencies>
       <dep package="libogg"/>
