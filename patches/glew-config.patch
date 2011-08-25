@@ -1,0 +1,11 @@
+--- config/Makefile.mingw.old	2011-08-25 13:09:45.988170076 +0200
++++ config/Makefile.mingw	2011-08-25 13:25:01.556170108 +0200
+@@ -1,7 +1,5 @@
+ NAME = glew32
+-CC = gcc
+-# use gcc for linking, with ld it does not work
+-LD = gcc
++LD=$(CC)
+ CFLAGS.SO = -DGLEW_BUILD
+ LDFLAGS.GL = -lglu32 -lopengl32 -lgdi32 -luser32 -lkernel32
+ LDFLAGS.EXTRA = -L/mingw/lib
