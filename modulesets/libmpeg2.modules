@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libmpeg2">
+    <branch repo="libmpeg2"
+            module="libmpeg2-0.5.1.tar.gz"
+            version="0.5.1">
+    </branch>
+  </autotools>
+
+</moduleset>

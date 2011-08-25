@@ -13,6 +13,7 @@
       <dep package="gstreamer"/>
       <dep package="gst-plugins-base"/>
       <dep package="x264"/>
+      <dep package="libmpeg2"/>
     </dependencies>
   </autotools>
 
