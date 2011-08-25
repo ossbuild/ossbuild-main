@@ -33,3 +33,5 @@
     href="http://cairographics.org/releases/"/>
   <repository type="tarball" name="wavpack.com"
     href="http://www.wavpack.com/"/>
+  <repository type="tarball" name="fontconfig.org"
+    href="http://www.fontconfig.org/release/"/>

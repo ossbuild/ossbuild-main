@@ -1,0 +1,31 @@
+--- configure	2009-11-19 00:49:41.000000000 +0100
++++ configure	2011-08-23 13:18:33.900164217 +0200
+@@ -1437,15 +1437,7 @@
+ target=$target_alias
+ 
+ # FIXME: To remove some day.
+-if test "x$host_alias" != x; then
+-  if test "x$build_alias" = x; then
+-    cross_compiling=maybe
+-    $as_echo "$as_me: WARNING: If you wanted to set the --build type, don't use --host.
+-    If a cross compiler is detected then cross compile mode will be used." >&2
+-  elif test "x$build_alias" != "x$host_alias"; then
+-    cross_compiling=yes
+-  fi
+-fi
++cross_compiling=maybe
+ 
+ ac_tool_prefix=
+ test -n "$host_alias" && ac_tool_prefix=$host_alias-
+--- Makefile.in	2011-08-23 13:23:38.972164229 +0200
++++ Makefile.in	2011-08-23 13:24:00.008164228 +0200
+@@ -324,8 +324,7 @@
+ pkgconfig_DATA = fontconfig.pc
+ configdir = $(CONFDIR)
+ config_DATA = fonts.dtd
+-@CROSS_COMPILING_FALSE@RUN_FC_CACHE_TEST = test -z "$(DESTDIR)"
+-@CROSS_COMPILING_TRUE@RUN_FC_CACHE_TEST = false
++RUN_FC_CACHE_TEST = false
+ all: config.h
+ 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
+ 

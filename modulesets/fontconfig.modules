@@ -1,16 +1,18 @@
 <?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
 <!DOCTYPE moduleset SYSTEM "moduleset.dtd">
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
 <moduleset>
 
-  <tarball id="fontconfig" version="2.8.0">
-    <source href="http://www.fontconfig.org/release/fontconfig-2.8.0.tar.gz"
-            hash="sha256:fa2a1c6eea654d9fce7a4b1220f10c99cdec848dccaf1625c01f076b31382335"
-            md5sum="77e15a92006ddc2adbb06f840d591c0e" size="1548409"/>
+  <autotools id="fontconfig" autogenargs="--disable-docs --with-arch=x86">
+    <branch repo="fontconfig.org"
+            version="2.8.0" module="fontconfig-2.8.0.tar.gz" >
+      <patch file="fontconfig-cross_compile.patch" strip="0" />
+    </branch>
     <dependencies>
       <dep package="expat"/>
       <dep package="freetype"/>
     </dependencies>
-  </tarball>
+  </autotools>
 
 </moduleset>
