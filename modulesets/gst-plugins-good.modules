@@ -21,6 +21,7 @@
       <dep package="libspeex"/>
       <dep package="orc"/>
       <dep package="wavpack"/>
+      <dep package="jpeg"/>
     </dependencies>
   </autotools>
 
