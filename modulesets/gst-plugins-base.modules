@@ -14,6 +14,7 @@
       <dep package="libtheora"/>
       <dep package="libvorbis"/>
       <dep package="pango"/>
+      <dep package="gtk"/>
     </dependencies>
   </autotools>
 
