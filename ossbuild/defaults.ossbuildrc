@@ -182,7 +182,7 @@ os.environ['PREFIX']= prefix
 if platform.system() == 'Windows': 
 	os.environ['RANLIB']='ranlib'
 	os.environ['WINDRES']='windres'
-	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501"
+	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501 -fno-common"
 	os.environ['CPPFLAGS'] = "-DMINGW64 -D__MINGW64__ -DMINGW32 -D__MINGW32__"
 	os.environ['LDFLAGS'] = "-Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc-v2 -Wl,--kill-at -Wl,--no-undefined"
 	os.environ['CXXFLAGS']=os.environ['CFLAGS']
@@ -195,7 +195,7 @@ else:
 	os.environ['AR']='i586-mingw32msvc-ar'
 	os.environ['AS']='i586-mingw32msvc-as'
 	os.environ['WINDRES']='i586-mingw32msvc-windres'
-	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501"
+	os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501 -fno-common"
 	os.environ['CPPFLAGS'] = "-DMINGW32 -D__MINGW32__"
 	os.environ['LDFLAGS'] = "-Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc-v2 -Wl,--kill-at -Wl,--no-undefined"
 	os.environ['CXXFLAGS']=os.environ['CFLAGS']
