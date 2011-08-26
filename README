@@ -1,10 +1,12 @@
 OSSBuild-mingw
 --------------
 
-OSSBuild-mingw provides a build system based on jhbuild to build open source software using Mingw/Msys for Windows. It extends jhbuild wrapping several of its commands and providing new ones that are specific to this build system. It also provides a default configuration and a set of modules that is ready to use on Windows.
+OSSBuild-mingw provides a build system based on jhbuild to build open source software using Mingw/Msys for Windows. It extends jhbuild, wrapping several of its commands and providing new ones that are specific to this build system. It also provides a default configuration and a set of modules that is ready to use on Windows.
 
 Prerequisites
 -------------
+
+On Windows:
 
  * Git: http://code.google.com/p/msysgit/
  * Python (2.7): http://www.python.org/download/windows/
@@ -12,21 +14,39 @@ Prerequisites
  * PyGtk (all-in-one installer): http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/pygtk-all-in-one-2.24.0.win32-py2.7.msi
  * MinGW-get (install all packages): http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/
 
-We reccomend using Console 2.00 instead of the default MinGW's terminal emulator. To install it run:
+We recommend using Console 2.00 instead of the default MinGW's terminal emulator. To install it, run:
   $ mingw-get install msys-console
   $ console-config
+
+On Linux:
+ * Git
+ * Python 2.7
+ * setuptools
+ * mingw cross compilers
+
+Fedora:
+ * git
+ * python
+ * python-setuptools
+ * mingw32-gcc
 
 
 Install ossbuild
 ---------------
 1. Checkout sources:
-  $ git clone git://github.com/ossbuild/ossbuild-main.git /c/ossbuild-mingw
+  Create a directory to work in.
+
+  $ git clone git://github.com/ossbuild/ossbuild-main.git
+  $ cd ossbuild-main
   $ git submodule init
   $ git submodule update
 
 2. Install
   $ . ./env                  # sets env variables
+  as root, systemwide:
   $ python setup.py install
+  or as user:
+  $ python setup.py install --prefix ~/prefix
   $ ossbuild setup
 
 Using ossbuild
