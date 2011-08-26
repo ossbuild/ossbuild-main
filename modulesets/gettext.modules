@@ -4,7 +4,7 @@
 <moduleset>
 
   <!-- ./configure step takes *a lot*, be patient :) --> 
-  <autotools id="gettext-runtime" autogen-sh="configure" check-target="false">
+  <autotools id="gettext-runtime" autogen-sh="configure" autogenargs="--enable-threads=win32" check-target="false">
     <branch module="gettext/gettext-0.18.1.1.tar.gz"
 	    repo="gnu.org" version="0.18.1.1">
       <patch file="gettext-runtime-only.patch" strip="0"/>
