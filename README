@@ -62,3 +62,8 @@ Since ossbuild uses jhbuild, you can use most of the jhbuild commands (see http:
 3. Build
   $ ossbuild build gstreamer
 
+Cross-compilation
+-----------------
+When cross-compiling, you can override the host and cross-compilation tools
+used with the HOST environment variable; for example, on Fedora 15:
+  $ HOST=i686-pc-mingw32 ossbuild build gstreamer

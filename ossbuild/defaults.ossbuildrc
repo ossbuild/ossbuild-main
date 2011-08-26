@@ -14,6 +14,12 @@ modulesets_dir = os.path.join(os.environ['HOME'], '.ossbuild', 'modulesets')
 moduleset = 'ossbuild'
 modules = []
 
+# the HOST for cross-compilation
+# on ubuntu
+_HOST = os.environ.get('HOST', 'i586-mingw32msvc')
+# on fedora 15
+# host = i686-pc-mingw32
+
 # policy for modules to build, options are:
 #  - all: build everything requested
 #  - updated: build only modules that have changed
@@ -47,7 +53,7 @@ builddir_pattern = '%s'
 if platform.system() == 'Windows':
     autogenargs = '--disable-static --disable-gtk-doc'
 else:
-    autogenargs = '--host=i586-mingw32msvc --build=i486-linux-gnu --disable-static --disable-gtk-doc'
+    autogenargs = '--host=%s --build=i486-linux-gnu --disable-static --disable-gtk-doc' % (_HOST, )
 cmakeargs = ''
 makeargs = ''
 cflags = ''
@@ -189,12 +195,12 @@ if platform.system() == 'Windows':
 	os.environ['WINDRES']='windres'
 	os.environ['PATH']= ':'.join([os.environ['PATH'], '/opt/activeperl/bin'])
 else:
-	os.environ['CC']='i586-mingw32msvc-gcc'
-	os.environ['CXX']='i586-mingw32msvc-g++'
-	os.environ['CPP']='i586-mingw32msvc-cpp'
-	os.environ['RANLIB']='i586-mingw32msvc-ranlib'
-	os.environ['AR']='i586-mingw32msvc-ar'
-	os.environ['AS']='i586-mingw32msvc-as'
-	os.environ['WINDRES']='i586-mingw32msvc-windres'
+	os.environ['CC']= _HOST + '-gcc'
+	os.environ['CXX']= _HOST + '-g++'
+	os.environ['CPP']= _HOST + '-cpp'
+	os.environ['RANLIB']= _HOST + '-ranlib'
+	os.environ['AR']= _HOST + '-ar'
+	os.environ['AS']= _HOST + '-as'
+	os.environ['WINDRES']= _HOST + '-windres'
 	os.environ['PKG_CONFIG_LIBDIR']=os.path.join(prefix, 'lib', 'pkgconfig')
 	os.environ['PKG_CONFIG_PATH']=os.path.join(prefix, 'lib', 'pkgconfig')
