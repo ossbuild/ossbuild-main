@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libav" autogen-sh="configure" skip-autogen="never"
+	  autogen-template="%(srcdir)s/%(autogen-sh)s --prefix=%(prefix)s --libdir=%(libdir)s --bindir=%(prefix)s/bin --shlibdir=%(prefix)s/bin --cross-prefix=%(prefix)s/bin/ --incdir=%(prefix)s/include  --enable-shared --enable-gpl --enable-version3 --cross-prefix=i586-mingw32msvc-
+	  --enable-w32threads --cc=$CC --ld=$CC --ar=$AR --as=$AS --nm=$NM --arch=x86 --target-os=mingw32 --enable-cross-compile --extra-ldflags='-export-all-symbols'"
+	  >
+    <branch repo="libav.org"
+            module="libav-0.7.tar.gz"
+            version="0.7.0">
+      <patch file="libav-disable-gcc-missing-prototype-check.patch"/>
+    </branch>
+  </autotools>
+
+</moduleset>
