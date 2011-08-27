@@ -14,11 +14,17 @@ modulesets_dir = os.path.join(os.environ['HOME'], '.ossbuild', 'modulesets')
 moduleset = 'ossbuild'
 modules = []
 
-# the HOST for cross-compilation
+# the HOST for cross-compilation defined in .ossbuild/ossbuildenv
 # on ubuntu
 _HOST = os.environ.get('HOST', 'i586-mingw32msvc')
 # on fedora 15
 # host = i686-pc-mingw32
+
+# the prefix for the toolchain used define in .ossbuild/ossbuildenv
+# allows using an uninstalled toolchain
+_TOOLCHAIN_PREFIX = os.environ.get('TOOLCHAIN_PREFIX', '/usr/bin')
+# prefix the prefix to PATH
+os.environ['PATH'] = '%s:%s' % (_TOOLCHAIN_PREFIX, os.environ['PATH'])
 
 # policy for modules to build, options are:
 #  - all: build everything requested

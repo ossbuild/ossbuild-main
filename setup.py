@@ -1,4 +1,5 @@
 import os
+import platform
 import shutil
 import shlex, subprocess
 
@@ -7,6 +8,16 @@ from setuptools.command.install import install as _install
 
 # FIXME: This will only works for installations invoking setup.py but not
 #        for bdist_rpm or bdit_msi, where we should pass a post-install script
+
+
+OSSBUILDENV = '''\
+# Sets the environment variables for the toolchain
+import os
+
+os.environ['HOST'] = 'i586-mingw32msvc'
+os.environ['TOOLCHAIN_PREFIX'] = '%s'
+'''
+
 class install(_install):
     def run(self):
         _install.run(self)
@@ -43,6 +54,15 @@ class install(_install):
         try:
             f=open(os.path.join(ossbuild_dest, 'ossbuildrc'), 'w+')
             f.write("modulesets_dir = '%s'" % modulesets_dest)
+            f.close()
+        except IOError, e:
+            raise Exception("Could not write 'ossbuilrc': %s", e)
+        try:
+            f=open(os.path.join(ossbuild_dest, 'ossbuildenv'), 'w+')
+            if platform.system() == 'Windows':
+                f.write(OSSBUILDENV % 'c:\\MinGW\\bin\\')
+            else:
+                f.write(OSSBUILDENV % '/usr/bin/')
             f.close()
         except IOError, e:
             raise Exception("Could not write 'ossbuilrc': %s", e)
