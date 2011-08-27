@@ -1,5 +1,5 @@
---- /home/andoni/ossbuild/checkout/clutter-1.6.16/clutter/cogl/cogl/winsys/cogl-win32.c	2011-08-25 16:00:10.572170425 +0200
-+++ /home/andoni/ossbuild/checkout/clutter-1.6.16/clutter/cogl/cogl/winsys/cogl-win32.c	2011-08-25 16:01:39.516170427 +0200
+--- clutter/cogl/cogl/winsys/cogl-win32.c	2011-08-25 16:00:10.572170425 +0200
++++ clutter/cogl/cogl/winsys/cogl-win32.c	2011-08-25 16:01:39.516170427 +0200
 @@ -26,6 +26,9 @@
  #endif
  
@@ -10,8 +10,8 @@
  
  CoglFuncPtr
  _cogl_winsys_get_proc_address (const char *name)
---- /home/andoni/ossbuild/checkout/clutter-1.6.16/configure	2011-08-25 15:57:38.428170419 +0200
-+++ /home/andoni/ossbuild/checkout/clutter-1.6.16/configure	2011-08-25 15:58:07.244170420 +0200
+--- configure	2011-08-25 15:57:38.428170419 +0200
++++ configure	2011-08-25 15:58:07.244170420 +0200
 @@ -12825,7 +12825,7 @@
           ;; #(
    win32) :
