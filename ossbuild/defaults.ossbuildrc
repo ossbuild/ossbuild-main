@@ -23,8 +23,9 @@ _HOST = os.environ.get('HOST', 'i586-mingw32msvc')
 # the prefix for the toolchain used define in .ossbuild/ossbuildenv
 # allows using an uninstalled toolchain
 _TOOLCHAIN_PREFIX = os.environ.get('TOOLCHAIN_PREFIX', '/usr/bin')
+_TOOLCHAIN_LIBS = os.path.join(_TOOLCHAIN_PREFIX, _HOST, 'lib')
 # prefix the prefix to PATH
-os.environ['PATH'] = '%s:%s' % (_TOOLCHAIN_PREFIX, os.environ['PATH'])
+os.environ['PATH'] = '%s/bin:%s' % (_TOOLCHAIN_PREFIX, os.environ['PATH'])
 
 # policy for modules to build, options are:
 #  - all: build everything requested
@@ -191,22 +192,16 @@ dvcs_mirror_dir = None
 os.environ['PREFIX']= prefix
 
 # default flags
-os.environ['CFLAGS'] = "-m32 -mms-bitfields -pipe -DWINVER=0x0501 -fno-common"
-os.environ['CPPFLAGS'] = "-DMINGW64 -D__MINGW64__ -DMINGW32 -D__MINGW32__"
-os.environ['LDFLAGS'] = "-Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc-v2 -Wl,--kill-at -Wl,--no-undefined"
+os.environ['CFLAGS'] = "-mms-bitfields -pipe -DWINVER=0x0501"
+os.environ['CPPFLAGS'] = "-DMINGW32 -D__MINGW32__"
+os.environ['LDFLAGS'] = "-L%s -Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--enable-runtime-pseudo-reloc-v2 -Wl,--kill-at -Wl,--no-undefined" % _TOOLCHAIN_LIBS
 os.environ['CXXFLAGS']=os.environ['CFLAGS']
-
-if platform.system() == 'Windows': 
-	os.environ['RANLIB']='ranlib'
-	os.environ['WINDRES']='windres'
-	os.environ['PATH']= ':'.join([os.environ['PATH'], '/opt/activeperl/bin'])
-else:
-	os.environ['CC']= _HOST + '-gcc'
-	os.environ['CXX']= _HOST + '-g++'
-	os.environ['CPP']= _HOST + '-cpp'
-	os.environ['RANLIB']= _HOST + '-ranlib'
-	os.environ['AR']= _HOST + '-ar'
-	os.environ['AS']= _HOST + '-as'
-	os.environ['WINDRES']= _HOST + '-windres'
-	os.environ['PKG_CONFIG_LIBDIR']=os.path.join(prefix, 'lib', 'pkgconfig')
-	os.environ['PKG_CONFIG_PATH']=os.path.join(prefix, 'lib', 'pkgconfig')
+os.environ['CC']= _HOST + '-gcc'
+os.environ['CXX']= _HOST + '-g++'
+os.environ['CPP']= _HOST + '-cpp'
+os.environ['RANLIB']= _HOST + '-ranlib'
+os.environ['AR']= _HOST + '-ar'
+os.environ['AS']= _HOST + '-as'
+os.environ['WINDRES']= _HOST + '-windres'
+os.environ['PKG_CONFIG_LIBDIR']=os.path.join(prefix, 'lib', 'pkgconfig')
+os.environ['PKG_CONFIG_PATH']=os.path.join(prefix, 'lib', 'pkgconfig')
