@@ -26,32 +26,84 @@
   <repository type="tarball" name="sourceforge.net"
       href="http://downloads.sourceforge.net/project/"/>
   <repository type="tarball" name="gstreamer.freedesktop.org"
-    href="http://gstreamer.freedesktop.org/src"/>
+    href="http://gstreamer.freedesktop.org/src/"/>
+  <repository type="tarball" name="xiph.org"
+    href="http://downloads.xiph.org/releases/"/>
+  <repository type="tarball" name="savannah.gnu.org"
+    href="http://download.savannah.gnu.org/releases/"/>
+  <repository type="tarball" name="entropywave.com"
+    href="http://code.entropywave.com/download/"/>
+  <repository type="tarball" name="cairographics.org"
+    href="http://cairographics.org/releases/"/>
+  <repository type="tarball" name="wavpack.com"
+    href="http://www.wavpack.com/"/>
+  <repository type="tarball" name="fontconfig.org"
+    href="http://www.fontconfig.org/release/"/>
+  <repository type="tarball" name="ijg.org"
+    href="http://www.ijg.org/files/"/>
+  <repository type="tarball" name="taglib"
+    href="http://developer.kde.org/~wheeler/files/src/"/>
+  <repository type="tarball" name="a52"
+    href="http://liba52.sourceforge.net/files/"/>
+  <repository type="tarball" name="videolan.org"
+    href="ftp://ftp.videolan.org/pub/"/>
+  <repository type="tarball" name="libmpeg2"
+    href="http://libmpeg2.sourceforge.net/files/"/>
 
-  <include href="freetype.modules"/>
-  <include href="libxml2.modules"/>
-  <include href="libtool.modules"/>
-  <include href="intltool.modules"/>
-  <include href="libiconv.modules"/>
-  <include href="gstreamer.modules"/>
-  <include href="iso-codes.modules"/>
-  <include href="pixman.modules"/>
-  <include href="libgdata.modules"/>
-  <include href="gnutls.modules"/>
-  <include href="libtasn1.modules"/>
-  <include href="libgda.modules"/>
-  <include href="gettext.modules"/>
-  <include href="fontconfig.modules"/>
-  <include href="shared-mime-info.modules"/>
-  <include href="zlib.modules"/>
-  <include href="gtk-doc.modules"/>
-  <include href="fribidi.modules"/>
-  <include href="liborc.modules"/>
-  <include href="glib.modules"/>
-  <include href="libxslt.modules"/>
-  <include href="libgpg-error.modules"/>
-  <include href="libgcrypt.modules"/>
-  <include href="expat.modules"/>
-  <include href="libpng.modules"/>
-  <include href="libsoup.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libgdata.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libmad.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libtasn1.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/lame.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/pango.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libogg.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/freetype.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/json-glib.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/bootstrap.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/cairo.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/fribidi.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libspeex.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gst-plugins-bad.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gtk.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libshout.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/intltool.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/a52.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/expat.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gst-plugins-ugly.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gst-plugins-base.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/shared-mime-info.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/glew.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/glib.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/orc.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/clutter-gst.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gettext.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/zlib.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libvorbis.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libtheora.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/x264.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libsoup.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/atk.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/wavpack.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libxml2.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/flac.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/twolame.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libiconv.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libid3tag.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libgda.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gst-plugins-good.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gdk-pixbuf.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libgcrypt.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/dbus.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gnutls.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/fontconfig.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/jpeg.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libpng.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libtool.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gstreamer.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libxslt.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/pixman.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libmpeg2.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/clutter.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/iso-codes.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/libgpg-error.modules"/>
+  <include href="/home/andoni/ossbuild-main/modulesets/gtk-doc.modules"/>
 </moduleset>

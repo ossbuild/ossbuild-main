@@ -8,3 +8,5 @@ export PATH=$PYTHON_PATH:$SCRIPTS_PATH:$PATH
 export PYTHONPATH=$JHBUILD_PATH:$WORK_DIR
 
 alias ossbuild='python ossbuild/main.py'
+
+exec "$@"
