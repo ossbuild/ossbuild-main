@@ -14,11 +14,12 @@ On Windows:
  * PyGtk (all-in-one installer): http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/pygtk-all-in-one-2.24.0.win32-py2.7.msi
  * MinGW-get (install all packages): http://sourceforge.net/projects/mingw/files/Automated%20MinGW%20Installer/mingw-get-inst/
 
-We recommend using Console 2.00 instead of the default MinGW's terminal emulator. To install it, run:
-  $ mingw-get install msys-console
-  $ console-config
+ We recommend using Console 2.00 instead of the default MinGW's terminal emulator. To install it, run:
+   $ mingw-get install msys-console
+   $ console-config
 
 On Linux:
+
  * git
  * python
  * python-setuptools
@@ -50,6 +51,23 @@ Install ossbuild
 
 3 Bootstrap (install the default toolchain and extra headers like the DirectX ones)
   $ ossbuild setup
+  $ ossbuild update_moduleset
+
+
+Configuring ossbuild
+--------------------
+OSSBuild has two configuration files, ~/.ossbuild/ossbuildrc and ~/.ossbuild/ossbuildenv.
+
+1. ossbuildrc
+  Configration file for the build system similar to the jhbuild one.
+  You can use this file to override the default values (set in /path/to/repo/ossbuild/defaults.ossbuild)
+  The installation step will create one for you changing the path of the modulesets directory:
+  modulesets_dir = '/home/user/git/ossbuild/modulesets'
+
+2. ossbuilenv
+  Configuration file used to override environment variables. This file is loaded before the defaults one,
+  allowing setting the environment variables HOST and TOOLCHAIN_PREFIX, which are used to use a custom toolchain.
+
 
 Using ossbuild
 --------------
@@ -64,11 +82,13 @@ Since ossbuild uses jhbuild, you can use most of the jhbuild commands (see http:
 3. Build
   $ ossbuild build gstreamer
 
+
 Building for W64
 ----------------
 Builds for 64bits are not supported yet, but you can still try using the
 W64 toolchain provided by mingw-w64 and send us patches :)
 You only need to change the default toolchain as explained in the next section 
+
 
 Changing the default toolchain
 ------------------------------
@@ -77,5 +97,5 @@ command. If you still want to use a different toolchain, you should edit the
 environment file (~/.ossbuild/ossbuildenv) and change the host triplet
 and the toolchain prefix. On Fedora 15, to use the system's cross-compiler you
 can use:
-os.environ['HOST'] = 'i686-pc-mingw32' 
-os.environ['TOOLCHAIN_PREFIX'] = '/usr' 
+os.environ['HOST'] = 'i686-pc-mingw32'
+os.environ['TOOLCHAIN_PREFIX'] = '/usr'
