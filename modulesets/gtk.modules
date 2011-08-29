@@ -6,7 +6,7 @@
 
   <autotools id="gtk">
     <branch repo="gnome.org"
-            version="2.24.5" module="gtk+/2.24/gtk+-2.24.5.tar.bz2" >
+            version="2.24.4" module="gtk+/2.24/gtk+-2.24.4.tar.bz2" >
     </branch>
     <dependencies>
       <dep package="glib"/>
