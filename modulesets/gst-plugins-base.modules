@@ -4,7 +4,7 @@
 <!-- vim:set ts=2 expandtab: -->
 <moduleset>
 
-  <autotools id="gst-plugins-base">
+  <autotools id="gst-plugins-base" autogenargs="--without-x">
     <branch repo="gstreamer.freedesktop.org"
             version="0.10.35" module="gst-plugins-base/gst-plugins-base-0.10.35.tar.bz2"/>
     <dependencies>
