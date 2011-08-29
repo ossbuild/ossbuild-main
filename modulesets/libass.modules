@@ -3,7 +3,8 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="libass">
+  <autotools id="libass" autogen-template="LDFLAGS=&quot;$LDFLAGS -no-undefined&quot; %(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s"
+             skip-autogen="never">
     <branch module="libass-0.9.13.tar.gz" version="0.9.13"
             repo="libass.googlecode.com">
     </branch>
