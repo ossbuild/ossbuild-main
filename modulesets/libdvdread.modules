@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+   <autotools id="libdvdread" autogen-sh="autogen.sh" skip-autogen="never">
+    <branch repo="mplayerhq.hu"
+	    module="dvdnav/libdvdread-4.1.3.tar.bz2" version="4.1.3">
+    </branch>
+  </autotools>
+
+</moduleset>
