@@ -14,6 +14,7 @@
       <dep package="gstreamer"/>
       <dep package="gst-plugins-base"/>
       <dep package="libvpx"/>
+      <dep package="libass"/>
     </dependencies>
   </autotools>
 

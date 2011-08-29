@@ -47,3 +47,5 @@
     href="http://libmpeg2.sourceforge.net/files/"/>
   <repository type="tarball" name="webm.googlecode.com"
     href="http://webm.googlecode.com/files/"/>
+  <repository type="tarball" name="libass.googlecode.com"
+    href="http://libass.googlecode.com/files/"/>

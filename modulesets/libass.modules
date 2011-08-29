@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libass">
+    <branch module="libass-0.9.13.tar.gz" version="0.9.13"
+            repo="libass.googlecode.com">
+    </branch>
+  </autotools>
+
+</moduleset>
