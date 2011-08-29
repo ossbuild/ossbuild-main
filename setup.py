@@ -14,8 +14,8 @@ OSSBUILDENV = '''\
 # Sets the environment variables for the toolchain
 import os
 
-os.environ['HOST'] = 'i686-w64-mingw32'
-os.environ['TOOLCHAIN_PREFIX'] = '%s'
+#os.environ['HOST'] = 'i686-w64-mingw32'
+#os.environ['TOOLCHAIN_PREFIX'] = '%s'
 '''
 
 class install(_install):

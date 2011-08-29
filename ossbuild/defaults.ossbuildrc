@@ -16,13 +16,13 @@ modules = []
 
 # the HOST for cross-compilation defined in .ossbuild/ossbuildenv
 # on ubuntu
-_HOST = os.environ.get('HOST', 'i586-mingw32msvc')
+_HOST = os.environ.get('HOST', 'i686-w64-mingw32')
 # on fedora 15
 # host = i686-pc-mingw32
 
 # the prefix for the toolchain used define in .ossbuild/ossbuildenv
 # allows using an uninstalled toolchain
-_TOOLCHAIN_PREFIX = os.environ.get('TOOLCHAIN_PREFIX', '/usr/bin')
+_TOOLCHAIN_PREFIX = os.environ.get('TOOLCHAIN_PREFIX', os.path.expanduser('~/ossbuild/mingw/w32'))
 _TOOLCHAIN_LIBS = os.path.join(_TOOLCHAIN_PREFIX, _HOST, 'lib')
 # prefix the prefix to PATH
 os.environ['PATH'] = '%s/bin:%s' % (_TOOLCHAIN_PREFIX, os.environ['PATH'])
