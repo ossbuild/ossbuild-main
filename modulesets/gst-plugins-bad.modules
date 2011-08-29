@@ -19,6 +19,7 @@
       <dep package="libcelt"/>
       <dep package="libexif"/>
       <dep package="libmimic"/>
+      <dep package="libmodplug"/>
     </dependencies>
   </autotools>
 

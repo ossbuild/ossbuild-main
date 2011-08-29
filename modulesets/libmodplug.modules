@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libmodplug">
+    <branch repo="sourceforge.net"
+	    module="modplug-xmms/libmodplug/0.8.8.4/libmodplug-0.8.8.4.tar.gz" version="0.8.8.4">
+    </branch>
+  </autotools>
+
+</moduleset>
