@@ -49,3 +49,5 @@
     href="http://webm.googlecode.com/files/"/>
   <repository type="tarball" name="libass.googlecode.com"
     href="http://libass.googlecode.com/files/"/>
+  <repository type="tarball" name="libkate.googlecode.com"
+    href="http://libkate.googlecode.com/files/"/>

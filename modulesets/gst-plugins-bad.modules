@@ -15,6 +15,7 @@
       <dep package="gst-plugins-base"/>
       <dep package="libvpx"/>
       <dep package="libass"/>
+      <dep package="libkate"/>
     </dependencies>
   </autotools>
 
