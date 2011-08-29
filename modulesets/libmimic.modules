@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libmimic">
+    <branch repo="sourceforge.net"
+	    module="farsight/libmimic/libmimic-1.0.4/libmimic-1.0.4.tar.gz" version="1.0.4">
+    </branch>
+  </autotools>
+
+</moduleset>

@@ -18,6 +18,7 @@
       <dep package="libkate"/>
       <dep package="libcelt"/>
       <dep package="libexif"/>
+      <dep package="libmimic"/>
     </dependencies>
   </autotools>
 
