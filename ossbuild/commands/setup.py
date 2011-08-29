@@ -85,7 +85,7 @@ class cmd_setup(Command):
               "https://mingw-w64.svn.sourceforge.net/svnroot/mingw-w64/trunk/mingw-w64-headers/direct-x/include "\
               "%s" % directx_headers
         buildscript.execute(shlex.split(cmd))
-        cmd = "svn checkout --trust-server-cert --non-interactive "\
+        cmd = "svn export --trust-server-cert --non-interactive "\
               "--no-auth-cache "\
               "https://mingw-w64.svn.sourceforge.net/svnroot/mingw-w64/trunk/mingw-w64-headers/crt/_mingw_unicode.h "\
               "%s" % os.path.join(directx_headers, '_mingw_unicode.h')
