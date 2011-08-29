@@ -7,6 +7,10 @@
     <branch module="libass-0.9.13.tar.gz" version="0.9.13"
             repo="libass.googlecode.com">
     </branch>
+    <dependencies>
+      <dep package="freetype"/>
+      <dep package="fontconfig"/>
+    </dependencies>
   </autotools>
 
 </moduleset>
