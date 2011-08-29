@@ -24,6 +24,7 @@
       <dep package="orc"/>
       <dep package="wavpack"/>
       <dep package="jpeg"/>
+      <dep package="taglib"/>
     </dependencies>
   </autotools>
 

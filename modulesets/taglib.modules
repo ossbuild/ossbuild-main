@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <cmake id="taglib">
+    <branch repo="taglib"
+            module="taglib-1.7.tar.gz" version="1.7">
+    </branch>
+  </cmake>
+
+</moduleset>
