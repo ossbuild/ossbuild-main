@@ -7,6 +7,9 @@
     <branch repo="sourceforge.net"
 	    module="farsight/libmimic/libmimic-1.0.4/libmimic-1.0.4.tar.gz" version="1.0.4">
     </branch>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
   </autotools>
 
 </moduleset>
