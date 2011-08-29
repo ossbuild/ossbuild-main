@@ -7,6 +7,10 @@
     <branch module="libkate-0.4.1.tar.gz" version="0.4.1"
             repo="libkate.googlecode.com">
     </branch>
+    <dependencies>
+      <dep package="ogg"/>
+      <dep package="png"/>
+    </dependencies>
   </autotools>
 
 </moduleset>
