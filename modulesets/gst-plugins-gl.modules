@@ -1,0 +1,21 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+  <autotools id="gst-plugins-gl">
+    <branch repo="gstreamer.freedesktop.org"
+	    version="0.10.2" module="gst-plugins-gl/gst-plugins-gl-0.10.2.tar.gz"/>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+      <dep package="glew"/>
+      <dep package="libpng"/>
+      <dep package="gtk"/>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
