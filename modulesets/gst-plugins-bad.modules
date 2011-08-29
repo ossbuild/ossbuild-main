@@ -17,6 +17,7 @@
       <dep package="libass"/>
       <dep package="libkate"/>
       <dep package="libcelt"/>
+      <dep package="libexif"/>
     </dependencies>
   </autotools>
 
