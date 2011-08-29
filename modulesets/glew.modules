@@ -3,7 +3,7 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="glew" makeargs="SYSTEM=mingw" makeinstallargs="SYSTEM=mingw GLEW_DEST=$PREFIX">
+  <autotools id="glew" makeargs="SYSTEM=mingw" makeinstallargs="install SYSTEM=mingw GLEW_DEST=$PREFIX">
     <branch module="glew/glew/1.6.0/glew-1.6.0.tgz" version="1.6.0"
             repo="sourceforge.net">
       <patch file="glew-config.patch"/>
