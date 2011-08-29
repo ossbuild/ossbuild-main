@@ -52,4 +52,6 @@
   <repository type="tarball" name="libkate.googlecode.com"
     href="http://libkate.googlecode.com/files/"/>
   <repository type="tarball" name="libav.org"
-    href="http://libav.org/releases"/>
+    href="http://libav.org/releases/"/>
+  <repository type="tarball" name="mplayerhq.hu"
+    href="http://www1.mplayerhq.hu/MPlayer/releases/"/>
