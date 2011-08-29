@@ -4,7 +4,8 @@
 <!-- vim:set ts=2 expandtab: -->
 <moduleset>
 
-  <autotools id="gst-plugins-bad" autogenargs="--disable-acm">
+  <autotools id="gst-plugins-bad" autogenargs="--disable-acm"
+             autogen-template="DIRECTX_CFLAGS=-I%(prefix)s/include/DirectX DIRECTX_LDFLAGS=-L%(prefix)s/lib %(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
     <branch repo="gstreamer.freedesktop.org"
             version="0.10.22" module="gst-plugins-bad/gst-plugins-bad-0.10.22.tar.bz2"/>
     <dependencies>
