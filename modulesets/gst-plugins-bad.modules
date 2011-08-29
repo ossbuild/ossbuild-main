@@ -12,6 +12,7 @@
       <dep package="orc"/>
       <dep package="gstreamer"/>
       <dep package="gst-plugins-base"/>
+      <dep package="libvpx"/>
     </dependencies>
   </autotools>
 

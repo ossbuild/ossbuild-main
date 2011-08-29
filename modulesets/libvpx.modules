@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libvpx" autogen-template="LD=$CC ./configure --prefix=%(prefix)s --libdir=%(libdir)s --as=yasm --target=x86-win32-gcc --enable-vp8 --enable-pic --enable-runtime-cpu-detect">
+    <branch module="/libvpx-v0.9.7-p1.tar.bz2" version="0.9.7-p1"
+            repo="webm.googlecode.com">
+    </branch>
+  </autotools>
+
+</moduleset>
