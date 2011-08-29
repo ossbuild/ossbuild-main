@@ -68,13 +68,29 @@ class cmd_setup(Command):
         for pkg in MSYS_PACKAGES:
             self.command('mingw-get install %s' % pkg)
         self.command('ossbuild bootstrap')
+        self.install_directx_headers(config, buildscript)
 
     def mingw_root(self, prefix, target='w32'):
         return os.path.join(prefix, "mingw", target)
 
     def unix_setup(self, config, buildscript):
         self.install_mingw_w32(config, buildscript)
-        
+        self.install_directx_headers(config, buildscript)
+
+    def install_directx_headers(self, config, buildscript):
+        directx_headers = os.path.join(config.prefix, 'include', 'DirectX')
+        buildscript.set_action(_("Installing DirectX headers"), self)
+        cmd = "svn checkout --trust-server-cert --non-interactive "\
+              "--no-auth-cache "\
+              "https://mingw-w64.svn.sourceforge.net/svnroot/mingw-w64/trunk/mingw-w64-headers/direct-x/include "\
+              "%s" % directx_headers
+        buildscript.execute(shlex.split(cmd))
+        cmd = "svn checkout --trust-server-cert --non-interactive "\
+              "--no-auth-cache "\
+              "https://mingw-w64.svn.sourceforge.net/svnroot/mingw-w64/trunk/mingw-w64-headers/crt/_mingw_unicode.h "\
+              "%s" % os.path.join(directx_headers, '_mingw_unicode.h')
+        buildscript.execute(shlex.split(cmd))
+
     def fix_lib_paths(self, buildscript, orig_sysroot, new_sysroot, lib_path):
         def escape(s):
             return s.replace('/', '\\/')
@@ -82,7 +98,7 @@ class cmd_setup(Command):
             sed_cmd = SED % (escape(orig_sysroot), escape(new_sysroot),
                              os.path.abspath(os.path.join(lib_path, path))) 
             buildscript.execute(sed_cmd.split(' '))
-        
+
     def install_mingw_w32(self, config, buildscript):
         buildscript.set_action(_("Downloading MinGW W32"), self)
         path = load(MINGW_W32_i686_LINUX)
@@ -93,6 +109,5 @@ class cmd_setup(Command):
         self.fix_lib_paths(buildscript, W32_i686_LINUX_SYSROOT,
                            os.path.join(mingw_root, 'i686-w64-mingw32', 'lib'),
                            '%s/i686-w64-mingw32/lib32' % mingw_root) 
-        
-        
+
 register_command(cmd_setup)
