@@ -8,8 +8,8 @@
             repo="libkate.googlecode.com">
     </branch>
     <dependencies>
-      <dep package="ogg"/>
-      <dep package="png"/>
+      <dep package="libogg"/>
+      <dep package="libpng"/>
     </dependencies>
   </autotools>
 
