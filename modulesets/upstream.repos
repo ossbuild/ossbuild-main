@@ -45,3 +45,5 @@
     href="ftp://ftp.videolan.org/pub/"/>
   <repository type="tarball" name="libmpeg2"
     href="http://libmpeg2.sourceforge.net/files/"/>
+  <repository type="tarball" name="webm.googlecode.com"
+    href="http://webm.googlecode.com/files/"/>
