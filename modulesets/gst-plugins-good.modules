@@ -8,7 +8,8 @@
                                                --disable-gst_v4l2 --disable-ximagesrc --disable-jack
                                                --disable-sunaudio --disable-oss4 --disable-oss
                                                --disable-osx_audio --disable-osx_video --disable-libdv
-                                               --without-x">
+                                               --without-x"
+             autogen-template="DIRECTSOUND_CFLAGS=-I%(prefix)s/include/DirectX DIRECSOUND_LDFLAGS=-L%(prefix)s/lib %(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
     <branch repo="gstreamer.freedesktop.org"
             version="0.10.30" module="gst-plugins-good/gst-plugins-good-0.10.30.tar.bz2"/>
     <dependencies>
