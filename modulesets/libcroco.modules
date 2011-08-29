@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libcroco"
+            autogen-template="LDFLAGS=&quot;$LDFLAGS -Wl,--export-all-symbols&quot; %(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
+    <branch module="libcroco/0.6/libcroco-0.6.2.tar.bz2" version="0.6.2"
+            repo="gnome.org">
+    </branch>
+    <dependencies>
+      <dep package="glib"/> 
+      <dep package="libxml2"/> 
+    </dependencies>
+  </autotools>
+
+</moduleset>
