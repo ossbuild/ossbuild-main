@@ -3,7 +3,7 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="libsrvg" skip-autogen="never"
+  <autotools id="librsvg" skip-autogen="never"
              autogen-template="ac_cv_path_GDK_PIXBUF_QUERYLOADERS=gdk-pixbuf-query-loaders-32 %(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
     <branch module="librsvg/2.34/librsvg-2.34.0.tar.bz2" version="2.34"
             repo="gnome.org">
