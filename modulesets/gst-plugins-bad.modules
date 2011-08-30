@@ -21,6 +21,7 @@
       <dep package="libmimic"/>
       <dep package="libmodplug"/>
       <dep package="libdvdnav"/>
+      <dep package="librsvg"/>
     </dependencies>
   </autotools>
 

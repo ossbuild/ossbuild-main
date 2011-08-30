@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libsrvg" skip-autogen="never"
+             autogen-template="ac_cv_path_GDK_PIXBUF_QUERYLOADERS=gdk-pixbuf-query-loaders-32 %(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
+    <branch module="librsvg/2.34/librsvg-2.34.0.tar.bz2" version="2.34"
+            repo="gnome.org">
+    </branch>
+    <dependencies>
+      <dep package="glib"/> 
+      <dep package="gtk"/> 
+      <dep package="gdk-pixbuf"/> 
+      <dep package="libcroco"/> 
+    </dependencies>
+  </autotools>
+
+</moduleset>
