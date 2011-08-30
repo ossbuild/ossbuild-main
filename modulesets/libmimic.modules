@@ -3,7 +3,8 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="libmimic">
+  <autotools id="libmimic"
+            autogen-template="LDFLAGS=&quot;$LDFLAGS -no-undefined -lglib-2.0&quot; %(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
     <branch repo="sourceforge.net"
 	    module="farsight/libmimic/libmimic-1.0.4/libmimic-1.0.4.tar.gz" version="1.0.4">
     </branch>
