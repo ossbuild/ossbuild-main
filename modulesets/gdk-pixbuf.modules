@@ -4,12 +4,15 @@
 <!-- vim:set ts=2 expandtab: -->
 <moduleset>
 
-  <autotools id="gdk-pixbuf" autogenargs="--without-libtiff --without-libjpeg">
+  <autotools id="gdk-pixbuf" autogenargs="--without-libtiff">
     <branch repo="gnome.org"
             version="2.22" module="gdk-pixbuf/2.22/gdk-pixbuf-2.22.0.tar.bz2" >
+      <patch file="gdk-pixbuf-do-not-override-nm.patch" strip="0"/>
     </branch>
     <dependencies>
       <dep package="glib"/>
+      <dep package="libpng"/>
+      <dep package="jpeg"/>
     </dependencies>
   </autotools>
 
