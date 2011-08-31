@@ -1,0 +1,11 @@
+--- configure.old	2011-08-31 23:00:10.412949694 +0200
++++ configure	2011-08-31 23:01:14.766266995 +0200
+@@ -17903,7 +17903,7 @@
+   ;;
+ esac
+ fi
+-NM=$ac_cv_path_NM
++#NM=$ac_cv_path_NM
+ if test -n "$NM"; then
+   { $as_echo "$as_me:${as_lineno-$LINENO}: result: $NM" >&5
+ $as_echo "$NM" >&6; }
