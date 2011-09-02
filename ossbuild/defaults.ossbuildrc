@@ -17,6 +17,7 @@ modules = []
 # the HOST for cross-compilation defined in .ossbuild/ossbuildenv
 # on ubuntu
 _HOST = os.environ.get('HOST', 'i686-w64-mingw32')
+print _HOST
 # on fedora 15
 # host = i686-pc-mingw32
 
@@ -210,4 +211,5 @@ os.environ['PKG_CONFIG_LIBDIR']=os.path.join(prefix, 'lib', 'pkgconfig')
 os.environ['PKG_CONFIG_PATH']=os.path.join(prefix, 'lib', 'pkgconfig')
 if platform.system() != 'Windows':
     os.environ['PYTHON'] = "wine %s/.wine/drive_c/Python27/python.exe" % os.path.expanduser('~')
+    os.environ['PYTHON_PATH'] = "%s/.wine/drive_c/Python27/" % os.path.expanduser('~')
     os.environ['CPPFLAGS'] += " -I%s/.wine/drive_c/Python27/include/" % os.path.expanduser('~')

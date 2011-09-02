@@ -69,6 +69,7 @@ class cmd_setup(Command):
             self.command('mingw-get install %s' % pkg)
         self.command('ossbuild bootstrap')
         self.install_directx_headers(config, buildscript)
+        self.install_python_headers(config, buildscript)
 
     def mingw_root(self, prefix, target='w32'):
         return os.path.join(prefix, "mingw", target)
@@ -76,6 +77,16 @@ class cmd_setup(Command):
     def unix_setup(self, config, buildscript):
         self.install_mingw_w32(config, buildscript)
         self.install_directx_headers(config, buildscript)
+        self.install_python_headers(config, buildscript)
+
+    def install_python_headers(self, config, buildscript):
+        python_headers = os.path.join(config.prefix, 'include', 'python2.7')
+        buildscript.set_action(_("Installing Python headers"), self)
+        cmd = "svn checkout --trust-server-cert --non-interactive "\
+              "--no-auth-cache "\
+              "http://svn.python.org/view/python/branches/release27-maint/Include/"\
+              "%s" % python_headers
+        buildscript.execute(shlex.split(cmd))
 
     def install_directx_headers(self, config, buildscript):
         directx_headers = os.path.join(config.prefix, 'include', 'DirectX')
