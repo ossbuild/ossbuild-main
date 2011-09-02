@@ -208,3 +208,6 @@ os.environ['STRIP']= _HOST + '-strip'
 os.environ['WINDRES']= _HOST + '-windres'
 os.environ['PKG_CONFIG_LIBDIR']=os.path.join(prefix, 'lib', 'pkgconfig')
 os.environ['PKG_CONFIG_PATH']=os.path.join(prefix, 'lib', 'pkgconfig')
+if platform.system() != 'Windows':
+    os.environ['PYTHON'] = "wine %s/.wine/drive_c/Python27/python.exe" % os.path.expanduser('~')
+    os.environ['CPPFLAGS'] += " -I%s/.wine/drive_c/Python27/include/" % os.path.expanduser('~')
