@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="libffi">
+    <branch module="libffi/libffi-3.0.10.tar.gz" version="3.0.10"
+            repo="sourceware.org">
+    </branch>
+  </autotools>
+
+</moduleset>
