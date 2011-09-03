@@ -57,3 +57,5 @@
     href="http://www1.mplayerhq.hu/MPlayer/releases/"/>
   <repository type="tarball" name="sourceware.org"
     href="ftp://sourceware.org/pub/"/>
+  <repository type="tarball" name="pkgconfig.freedesktop.org"
+    href="http://pkgconfig.freedesktop.org/releases/"/>
