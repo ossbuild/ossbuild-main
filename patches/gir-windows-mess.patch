@@ -1,0 +1,125 @@
+--- giscanner/giscannermodule.c	2010-12-06 15:20:52.000000000 +0100
++++ giscanner/giscannermodule.c	2011-09-02 20:13:05.000000000 +0200
+@@ -24,7 +24,7 @@
+ #endif
+ #include <Python.h>
+ #include "sourcescanner.h"
+-#include "grealpath.h"
++#include "grealpath_windows.h"
+ 
+ #ifdef _WIN32
+ #include <fcntl.h>
+--- giscanner/grealpath_windows.h	1970-01-01 01:00:00.000000000 +0100
++++ giscanner/grealpath_windows.h	2011-09-02 20:13:26.000000000 +0200
+@@ -0,0 +1,54 @@
++#ifndef __G_REALPATH_H__
++#define __G_REALPATH_H__
++
++#include <stdlib.h>
++#include <windows.h>
++
++/**
++ * g_realpath:
++ *
++ * this should be a) filled in for win32 and b) put in glib...
++ */
++	
++static inline gchar*
++g_realpath (const char *path)
++{
++#ifndef _WIN32
++#ifndef PATH_MAX
++#define PATH_MAX 4096
++#endif
++	char buffer [PATH_MAX];
++	if (realpath(path, buffer))
++		return g_strdup(buffer);
++	else
++		return NULL;
++#else
++	char *buffer;
++	char dummy;
++	int rc, len;
++
++	rc = GetFullPathNameA(path, 1, &dummy, NULL);
++
++	if (rc == 0)
++	  {
++	    /* Weird failure, so just return the input path as such */
++	    return g_strdup(path);
++	  }
++
++	len = rc + 1;
++	buffer = g_malloc(len);
++
++	rc = GetFullPathNameA(path, len, buffer, NULL);
++
++	if (rc == 0 || rc > len)
++	  {
++	    /* Weird failure again */
++	    g_free(buffer);
++	    return g_strdup(path);
++	  }
++
++	return buffer;
++#endif
++}
++
++#endif
+--- Makefile-giscanner.am	2010-11-09 19:57:01.000000000 +0100
++++ Makefile-giscanner.am	2011-09-02 20:19:18.000000000 +0200
+@@ -18,6 +18,7 @@
+ 	giscanner/sourcescanner.h				\
+ 	giscanner/scannerlexer.l				\
+ 	giscanner/scannerparser.y				\
++	giscanner/grealpath_windows.h				\
+ 	giscanner/grealpath.h
+ libgiscanner_la_CPPFLAGS = -I$(top_srcdir)/girepository -I$(top_srcdir)/giscanner
+ libgiscanner_la_LIBADD = $(GOBJECT_LIBS)
+--- Makefile.in	2011-04-21 15:37:01.000000000 +0200
++++ Makefile.in	2011-09-02 20:19:19.000000000 +0200
+@@ -777,6 +777,7 @@
+ 	giscanner/sourcescanner.h				\
+ 	giscanner/scannerlexer.l				\
+ 	giscanner/scannerparser.y				\
++	giscanner/grealpath_windows.h				\
+ 	giscanner/grealpath.h
+ 
+ libgiscanner_la_CPPFLAGS = -I$(top_srcdir)/girepository -I$(top_srcdir)/giscanner
+Subdirectorios comunes: gobject-introspection-0.10.8.new/girepository//cmph y gobject-introspection-0.10.8/girepository//cmph
+--- girepository//girffi.c	2011-09-02 20:10:29.000000000 +0200
++++ girepository//girffi.c	2011-09-02 20:56:20.000000000 +0200
+@@ -20,7 +20,7 @@
+  */
+ 
+ #include <sys/types.h>
+-#include <sys/mman.h>
++//#include <sys/mman.h>
+ 
+ #include <config.h>
+ #include <errno.h>
+--- Makefile.in	2011-09-02 21:10:02.000000000 +0200
++++ Makefile.in	2011-09-02 20:29:55.000000000 +0200
+@@ -103,7 +103,7 @@
+ 
+ # Yuck. Probably there is a way to get this from Python, but I don't
+ # know how. Use -Wl to avoid libtool crack.
+-@OS_WIN32_TRUE@am__append_1 = -Wl,$(pyexecdir)/../../libs/libpython25.a -no-undefined
++@OS_WIN32_TRUE@am__append_1 = -Wl,$(PYTHON_PATH)/libs/libpython27.a -no-undefined
+ @OS_WIN32_TRUE@am__append_2 = _giscanner.pyd
+ @OS_WIN32_TRUE@am__append_3 = _giscanner.pyd
+ subdir = .
+@@ -2771,11 +2771,11 @@
+ GIRepository-2.0.gir: GObject-2.0.gir libgirepository-1.0.la
+ 
+ g-ir-scanner: tools/g-ir-scanner.in _giscanner.la Makefile
+-	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,$(PYTHON), $< > $@.tmp && mv $@.tmp $@
++	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,/c/Python25/python.exe, $< > $@.tmp && mv $@.tmp $@
+ 	@chmod a+x $@
+ 
+ g-ir-annotation-tool: tools/g-ir-annotation-tool.in _giscanner.la Makefile
+-	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,$(PYTHON), $< > $@.tmp && mv $@.tmp $@
++	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,/c/Python25/python.exe, $< > $@.tmp && mv $@.tmp $@
+ 	@chmod a+x $@
+ 
+ prepare-release-tag: Makefile
