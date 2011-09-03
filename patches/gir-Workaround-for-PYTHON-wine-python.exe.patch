@@ -1,0 +1,16 @@
+--- gobject-introspection-0.10.8/Makefile-tools.am	2010-11-16 23:01:07.000000000 +0100
++++ gobject-introspection-0.10.8.new/Makefile-tools.am	2011-09-03 13:38:28.000000000 +0200
+@@ -3,11 +3,11 @@
+ EXTRA_DIST += tools/g-ir-scanner.in tools/g-ir-annotation-tool.in
+ 
+ g-ir-scanner: tools/g-ir-scanner.in _giscanner.la Makefile
+-	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,$(PYTHON), $< > $@.tmp && mv $@.tmp $@
++	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,python, $< > $@.tmp && mv $@.tmp $@
+ 	@chmod a+x $@
+ 
+ g-ir-annotation-tool: tools/g-ir-annotation-tool.in _giscanner.la Makefile
+-	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,$(PYTHON), $< > $@.tmp && mv $@.tmp $@
++	$(AM_V_GEN) sed -e s,@libdir\@,$(libdir), -e s,@PYTHON\@,python, $< > $@.tmp && mv $@.tmp $@
+ 	@chmod a+x $@
+ 
+ g_ir_compiler_SOURCES = tools/compiler.c

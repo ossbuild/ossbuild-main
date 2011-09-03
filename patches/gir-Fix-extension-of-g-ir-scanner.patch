@@ -1,0 +1,25 @@
+From fcac898ce5a62c9a58efac0566cb6b33e81c1533 Mon Sep 17 00:00:00 2001
+From: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date: Sat, 3 Sep 2011 16:32:28 +0200
+Subject: [PATCH] Fix extension of g-ir-scanner
+
+---
+ common.mk |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index 014e30c..0badbfb 100644
+--- a/common.mk
++++ b/common.mk
+@@ -11,7 +11,7 @@ INTROSPECTION_SCANNER = \
+         PYTHONPATH=$(top_builddir):$(top_srcdir) \
+ 	UNINSTALLED_INTROSPECTION_SRCDIR=$(top_srcdir) \
+ 	UNINSTALLED_INTROSPECTION_BUILDDIR=$(top_builddir) \
+-    $(top_builddir)/g-ir-scanner$(EXEEXT)
++    $(top_builddir)/g-ir-scanner
+ INTROSPECTION_SCANNER_ARGS = \
+     --verbose \
+     -I$(top_srcdir) \
+-- 
+1.7.4.1
+

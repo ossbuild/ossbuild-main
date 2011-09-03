@@ -1,0 +1,26 @@
+From d7ded220f2206bc9ed1feb287c22ce0db860be71 Mon Sep 17 00:00:00 2001
+From: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date: Sat, 3 Sep 2011 13:07:13 +0200
+Subject: [PATCH] Don't include mman.h on windows
+
+---
+ girepository/girffi.c |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+diff --git a/girepository/girffi.c b/girepository/girffi.c
+index b5d3597..7f5951d 100644
+--- a/girepository/girffi.c
++++ b/girepository/girffi.c
+@@ -20,7 +20,9 @@
+  */
+ 
+ #include <sys/types.h>
++#ifndef _WIN32
+ #include <sys/mman.h>
++#endif
+ 
+ #include <config.h>
+ #include <errno.h>
+-- 
+1.7.4.1
+

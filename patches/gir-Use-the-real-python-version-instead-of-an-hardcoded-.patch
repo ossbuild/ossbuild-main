@@ -1,0 +1,26 @@
+From f6ea60d6daae42745fab93ca4fe8228c20296ded Mon Sep 17 00:00:00 2001
+From: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date: Sat, 3 Sep 2011 12:44:41 +0200
+Subject: [PATCH 1/2] Use the real python version instead of an hardcoded one
+
+---
+ Makefile-giscanner.am |    3 ++-
+ 1 files changed, 2 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile-giscanner.am b/Makefile-giscanner.am
+index 616e3b1..841089f 100644
+--- a/Makefile-giscanner.am
++++ b/Makefile-giscanner.am
+@@ -66,7 +66,8 @@ _giscanner_la_LDFLAGS = \
+ if OS_WIN32
+ # Yuck. Probably there is a way to get this from Python, but I don't
+ # know how. Use -Wl to avoid libtool crack.
+-_giscanner_la_LDFLAGS += -Wl,$(pyexecdir)/../../libs/libpython25.a -no-undefined
++PYVER= `echo $(PYTHON_VERSION) | sed 's/\.//g'`
++_giscanner_la_LDFLAGS += -Wl,$(pyexecdir)/../../libs/libpython$(PYVER).a -no-undefined
+ endif
+ 
+ _giscanner_la_SOURCES = giscanner/giscannermodule.c
+-- 
+1.7.4.1
+

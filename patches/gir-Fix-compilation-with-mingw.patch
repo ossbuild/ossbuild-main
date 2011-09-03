@@ -1,0 +1,55 @@
+From 9b37d32c33e563ab3f1480beba7d82b3ce933efe Mon Sep 17 00:00:00 2001
+From: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date: Sat, 3 Sep 2011 12:49:22 +0200
+Subject: [PATCH 2/2] Fix compilation  with mingw
+
+---
+ giscanner/giscannermodule.c |    3 +++
+ giscanner/grealpath.h       |    8 +++++++-
+ 2 files changed, 10 insertions(+), 1 deletions(-)
+
+diff --git a/giscanner/giscannermodule.c b/giscanner/giscannermodule.c
+index b7cfd6e..f99ebab 100644
+--- a/giscanner/giscannermodule.c
++++ b/giscanner/giscannermodule.c
+@@ -24,6 +24,9 @@
+ #endif
+ #include <Python.h>
+ #include "sourcescanner.h"
++#ifdef _WIN32
++#define USE_WINDOWS
++#endif
+ #include "grealpath.h"
+ 
+ #ifdef _WIN32
+diff --git a/giscanner/grealpath.h b/giscanner/grealpath.h
+index f5af7cb..176f57e 100644
+--- a/giscanner/grealpath.h
++++ b/giscanner/grealpath.h
+@@ -2,6 +2,9 @@
+ #define __G_REALPATH_H__
+ 
+ #include <stdlib.h>
++#ifdef USE_WINDOWS
++#include <windows.h>
++#endif
+ 
+ /**
+  * g_realpath:
+@@ -24,9 +27,12 @@ g_realpath (const char *path)
+ #else
+ 	/* We don't want to include <windows.h> as it clashes horribly
+ 	 * with token names from scannerparser.h. So just declare
+-	 * GetFullPathNameA() here.
++	 * GetFullPathNameA() here unless we already defined it, like
++	 * in giscanner.c.
+ 	 */
++#ifndef USE_WINDOWS
+ 	extern __stdcall GetFullPathNameA(const char*, int, char*, char**);
++#endif
+ 	char *buffer;
+ 	char dummy;
+ 	int rc, len;
+-- 
+1.7.4.1
+

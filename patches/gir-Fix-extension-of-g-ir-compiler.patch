@@ -1,0 +1,25 @@
+From e0b3bda4eef9ea1a4a4787b7ac35cb0040325fab Mon Sep 17 00:00:00 2001
+From: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date: Sat, 3 Sep 2011 16:23:20 +0200
+Subject: [PATCH] Fix extension of g-ir-compiler
+
+---
+ Makefile-gir.am |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile-gir.am b/Makefile-gir.am
+index f32190f..364d5ec 100644
+--- a/Makefile-gir.am
++++ b/Makefile-gir.am
+@@ -86,7 +86,7 @@ GLib_2_0_gir_FILES =  \
+ 
+ BUILT_GIRSOURCES += GLib-2.0.gir
+ 
+-GLib-2.0.gir: g-ir-scanner g-ir-compiler
++GLib-2.0.gir: g-ir-scanner g-ir-compiler$(EXEEXT)
+ 
+ gir/DBusGLib-1.0.typelib: GObject-2.0.gir
+ 
+-- 
+1.7.4.1
+

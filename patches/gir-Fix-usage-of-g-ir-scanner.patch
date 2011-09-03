@@ -1,0 +1,51 @@
+From 0c818862c9d2b6a5f638ea5885f352304cec4dfd Mon Sep 17 00:00:00 2001
+From: Andoni Morales Alastruey <ylatuya@gmail.com>
+Date: Sat, 3 Sep 2011 16:32:28 +0200
+Subject: [PATCH 6/8] Fix usage of g-ir-scanner when cross-compiling
+
+---
+ common.mk    |   10 +++++++++-
+ configure.ac |    1 +
+ 2 files changed, 10 insertions(+), 1 deletions(-)
+
+diff --git a/common.mk b/common.mk
+index 014e30c..6e1beb5 100644
+--- a/common.mk
++++ b/common.mk
+@@ -6,12 +6,20 @@
+ # module itself.
+ #
+ 
++if CROSS_COMPILING
++INTROSPECTION_SCANNER = \
++    env LPATH=.libs \
++        PYTHONPATH=$(top_builddir):$(top_srcdir) \
++	UNINSTALLED_INTROSPECTION_BUILDDIR=$(top_builddir) \
++    g-ir-scanner
++else
+ INTROSPECTION_SCANNER = \
+     env LPATH=.libs \
+         PYTHONPATH=$(top_builddir):$(top_srcdir) \
+ 	UNINSTALLED_INTROSPECTION_SRCDIR=$(top_srcdir) \
+ 	UNINSTALLED_INTROSPECTION_BUILDDIR=$(top_builddir) \
+-    $(top_builddir)/g-ir-scanner$(EXEEXT)
++    $(top_builddir)/g-ir-scanner
++endif
+ INTROSPECTION_SCANNER_ARGS = \
+     --verbose \
+     -I$(top_srcdir) \
+diff --git a/configure.ac b/configure.ac
+index 570d756..5c6743c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -35,6 +35,7 @@ case "$host" in
+ esac
+ AC_MSG_RESULT([$os_win32])
+ AM_CONDITIONAL(OS_WIN32, [test "$os_win32" = "yes"])
++AM_CONDITIONAL(CROSS_COMPILING, test "x$cross_compiling" = "xyes")
+ 
+ # Checks for programs.
+ AC_PROG_CC
+-- 
+1.7.4.1
+
