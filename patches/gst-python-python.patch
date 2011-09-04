@@ -1,0 +1,38 @@
+--- gst-python-0.10.21/configure.ac	2011-01-20 21:13:17.000000000 +0100
++++ gst-python-0.10.21.new/configure.ac	2011-09-04 20:24:00.000000000 +0200
+@@ -420,7 +420,15 @@
+ 
+ dnl Stuff needed for the python plugin loader
+ 
+-AM_CHECK_PYTHON_LIBS(,[AC_MSG_ERROR(could not find Python lib)])
++if test "x$cross_compiling" = "xyes" && test "x$PYTHON_PLATFORM" = "xwin32"; then
++  PYVER=`echo ${PYTHON_VERSION} | sed 's/\.//g'`
++  PYTHON_LIBS="-Wl,${pythondir}/../../libs/libpython${PYVER}.a -no-undefined"
++  PYTHON_LIB_LOC="${pythondir}/lib"
++  AC_SUBST([PYTHON_LIBS])
++  AC_SUBST([PYTHON_LIB_LOC])
++else
++  AM_CHECK_PYTHON_LIBS(,[AC_MSG_ERROR(could not find Python lib)])
++fi
+ 
+ AG_GST_SET_PLUGINDIR
+ 
+--- gst-python-0.10.21/gst/Makefile.am	2011-01-05 20:24:37.000000000 +0100
++++ gst-python-0.10.21.new/gst/Makefile.am	2011-09-04 20:24:00.000000000 +0200
+@@ -1,6 +1,6 @@
+ common_cflags = $(PYGOBJECT_CFLAGS) $(GST_CFLAGS) $(GST_OPTION_CFLAGS) -fno-strict-aliasing
+ common_libadd = $(GST_LIBS) $(GST_OPTION_LIBS)
+-common_ldflags = -module -avoid-version
++common_ldflags = -module -avoid-version $(PYTHON_LIBS)
+ 
+ pkgpyexecdir = $(pyexecdir)/gst-$(GST_MAJORMINOR)/gst
+ 
+@@ -102,7 +102,7 @@
+ # GStreamer pbutils bindings
+ pbutils_la_CFLAGS = $(common_cflags) $(GST_PLUGINS_BASE_CFLAGS)
+ pbutils_la_LIBADD = $(common_libadd) $(GST_PLUGINS_BASE_LIBS) -lgstpbutils-0.10
+-pbutils_la_LDFLAGS = $(common_ldflags) \
++pbutils_la_LDFLAGS = $(common_ldflags) .libs/_gst.la \
+ 	-export-symbols-regex "^(initpbutils|_PyGObject_API).*" $(GST_PLUGINS_BASE_LIBS)
+ pbutils_la_SOURCES = pbutilsmodule.c gst-argtypes.c
+ nodist_pbutils_la_SOURCES = pbutils.c

@@ -1,0 +1,39 @@
+From 31afe4c53245b99c886b9938d610acf588af571b Mon Sep 17 00:00:00 2001
+From: Mark Nauwelaerts <mark.nauwelaerts@collabora.co.uk>
+Date: Wed, 27 Apr 2011 22:07:44 +0200
+Subject: [PATCH] gst: avoid unresolved xml symbol
+
+... for .dll platforms at least, at the expense of a non-operational
+gst_xml_write wrapper.
+
+Fixes #398567.
+---
+ gst/arg-types.py |    9 ++++++++-
+ 1 files changed, 8 insertions(+), 1 deletions(-)
+
+diff --git a/gst/arg-types.py b/gst/arg-types.py
+index bf45607..c95207d 100644
+--- a/gst/arg-types.py
++++ b/gst/arg-types.py
+@@ -44,10 +44,17 @@ class XmlNodeArg(ArgType):
+ 			'    %(name)s = PyCObject_AsVoidPtr(o);\n')
+ 	parmp = ('    Py_DECREF(o); Py_DECREF(xobj);Py_DECREF(xml);\n')
+ 
+-	ret =  ('    if(xml == NULL) return NULL;\n')
++	ret =  ('#if defined __CYGWIN__ || defined G_OS_WIN32\n'
++		'    return NULL;\n'
++		'#else\n'
++		'    if(xml == NULL) return NULL;\n'
++		'#endif\n')
+ 	retp = ('    xargs = PyTuple_New(1);\n'
+ 			'    xobj = PyObject_GetAttrString(xml, "%(xobj)s");\n'
++			'#if defined __CYGWIN__ || defined G_OS_WIN32\n'
++			'#else\n'
+ 			'    o = %(xwrap)s(ret);\n'
++			'#endif\n'
+ 			'    PyTuple_SetItem(xargs, 0, o);\n'
+ 			'    return PyInstance_New(xobj, xargs, PyDict_New());\n')
+ 
+-- 
+1.6.0.2
+

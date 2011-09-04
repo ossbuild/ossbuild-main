@@ -1,0 +1,22 @@
+<?xml version="1.0"?><!--*- mode: nxml; indent-tabs-mode: nil -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<!-- vim:set ts=2 expandtab: -->
+<moduleset>
+
+  <autotools id="gst-python" autogen-template="autoreconf;  am_cv_python_pythondir=%(libdir)s/python2.7/site-packages am_cv_python_pyexecdir=%(libdir)s/python2.7/site-packages ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s"
+             autogenargs="--disable-introspection --disable-docs">
+    <branch repo="gstreamer.freedesktop.org"
+            version="0.10.21" module="gst-python/gst-python-0.10.21.tar.bz2">
+      <patch file="gst-python-xml.patch" strip="1"/>
+      <patch file="gst-python-python.patch" strip="1"/>
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="libxml2"/>
+      <dep package="gstreamer"/>
+      <dep package="gst-plugins-base"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
