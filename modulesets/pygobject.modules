@@ -5,8 +5,7 @@
 
   <autotools id="pygobject" autogen-template="am_cv_python_pyexecdir=$HOME/.wine/drive_c/Python27/Lib/site-packages
   am_cv_python_pyexeclibdir=/home/andoni/.wine/drive_c/Python27/Lib/site-packages ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s"
-             autogenargs="--disable-introspection --disable-docs"
-             makeinstall="find . -name Makefile -exec sed -i 's/$(PYTHON) $(py_compile)/ $(py_compile)/g' '{}' \; make install">
+             autogenargs="--disable-introspection --disable-docs">
     <branch module="pygobject/2.26/pygobject-2.26.0.tar.bz2" version="2.26"
             repo="gnome.org">
       <patch file="pygobject-cross-compilation-makefile.in.patch" strip="1"/>
