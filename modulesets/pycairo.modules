@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="pycairo" autogen-template="autoreconf -i -f; am_cv_python_pyexecdir=$HOME/.wine/drive_c/Python27/Lib/site-packages
+  am_cv_python_pyexeclibdir=/home/andoni/.wine/drive_c/Python27/Lib/site-packages ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
+    <branch module="py2cairo-1.10.0.tar.bz2" version="1.10.0"
+            repo="cairographics.org">
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
