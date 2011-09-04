@@ -3,8 +3,7 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="pygobject" autogen-template="autoreconf; am_cv_python_pyexecdir=$HOME/.wine/drive_c/Python27/Lib/site-packages
-  ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s"
+  <autotools id="pygobject" autogen-template="autoreconf;  am_cv_python_pythondir=%(libdir)s/python2.7/site-packages am_cv_python_pyexecdir=%(libdir)s/python2.7/site-packages ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s"
              autogenargs="--disable-introspection --disable-docs">
     <branch module="pygobject/2.26/pygobject-2.26.0.tar.bz2" version="2.26"
             repo="gnome.org">

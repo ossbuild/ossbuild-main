@@ -3,8 +3,7 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="pycairo" autogen-template="autoreconf -i -f; am_cv_python_pyexecdir=$HOME/.wine/drive_c/Python27/Lib/site-packages
-  am_cv_python_pyexeclibdir=/home/andoni/.wine/drive_c/Python27/Lib/site-packages ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
+  <autotools id="pycairo" autogen-template="autoreconf -i -f; am_cv_python_pythondir=%(libdir)s/python2.7/site-packages am_cv_python_pyexecdir=%(libdir)s/python2.7/site-packages ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s">
     <branch module="py2cairo-1.10.0.tar.bz2" version="1.10.0"
             repo="cairographics.org">
     </branch>
