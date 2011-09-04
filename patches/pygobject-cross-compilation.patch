@@ -1,0 +1,40 @@
+--- gio/Makefile.am	2011-09-04 13:19:59.000000000 +0200
++++ gio/Makefile.am	2011-09-04 13:29:39.000000000 +0200
+@@ -27,7 +27,8 @@
+ # linker flags
+ common_ldflags = -module -avoid-version
+ if PLATFORM_WIN32
+-common_ldflags += -no-undefined
++PYVER= `echo $(PYTHON_VERSION) | sed 's/\.//g'`
++common_ldflags += -Wl,$(pyexecdir)/../../libs/libpython$(PYVER).a -no-undefined
+ endif
+ 
+ CLEANFILES =
+--- gobject/Makefile.am	2011-09-04 13:20:00.000000000 +0200
++++ gobject/Makefile.am	2011-09-04 13:27:54.000000000 +0200
+@@ -16,7 +16,8 @@
+ 
+ common_ldflags = -module -avoid-version
+ if PLATFORM_WIN32
+-common_ldflags += -no-undefined
++PYVER= `echo $(PYTHON_VERSION) | sed 's/\.//g'`
++common_ldflags += -Wl,$(pyexecdir)/../../libs/libpython$(PYVER).a -no-undefined
+ endif
+ 
+ _gobject_la_CFLAGS = \
+--- glib/Makefile.am	2011-09-04 13:19:59.000000000 +0200
++++ glib/Makefile.am	2011-09-04 13:29:40.000000000 +0200
+@@ -16,10 +16,12 @@
+ 
+ common_ldflags = -module -avoid-version
+ if PLATFORM_WIN32
+-common_ldflags += -no-undefined
++PYVER= `echo $(PYTHON_VERSION) | sed 's/\.//g'`
++common_ldflags += -Wl,$(pyexecdir)/../../libs/libpython$(PYVER).a -no-undefined
+ endif
+ 
+ libpyglib_2_0_@PYTHON_BASENAME@_la_CFLAGS = $(GLIB_CFLAGS)
++libpyglib_2_0_@PYTHON_BASENAME@_la_LDFLAGS = $(common_ldflags)
+ libpyglib_2_0_@PYTHON_BASENAME@_la_LIBADD = $(GLIB_LIBS) $(FFI_LIBS)
+ libpyglib_2_0_@PYTHON_BASENAME@_la_SOURCES = 	\
+ 	pyglib.c		\
