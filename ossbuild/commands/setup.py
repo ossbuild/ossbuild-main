@@ -41,6 +41,11 @@ SED = "sed -i s/%s/%s/g %s"
 
 MINGW_W32_x84_64_LINUX ="http://downloads.sourceforge.net/project/mingw-w64/Toolchains%20targetting%20Win32/Automated%20Builds/mingw-w32-1.0-bin_x86_64-linux_20110819.tar.bz2"
 
+GL_HEADERS = ["http://cgit.freedesktop.org/mesa/mesa/plain/include/GL/gl.h",
+              #"http://cgit.freedesktop.org/mesa/mesa/plain/include/GL/mesa_wgl.h",
+              "http://www.opengl.org/registry/api/glext.h"]
+
+
 class cmd_setup(Command):
     doc = N_('Setup the build system')
 
@@ -64,18 +69,42 @@ class cmd_setup(Command):
         else:
             self.unix_setup(config, buildscript)
 
+    def common_install(self, config, buildscript):
+        self.install_directx_headers(config, buildscript)
+        self.install_gl_headers(config, buildscript)
+        self.install_python_headers(config, buildscript)
+
     def windows_setup(self, config, buildscript):
         for pkg in MSYS_PACKAGES:
             self.command('mingw-get install %s' % pkg)
         self.command('ossbuild bootstrap')
-        self.install_directx_headers(config, buildscript)
+        self.common_install(config, buildscript)
 
     def mingw_root(self, prefix, target='w32'):
         return os.path.join(prefix, "mingw", target)
 
     def unix_setup(self, config, buildscript):
+        self.common_install(config, buildscript)
         self.install_mingw_w32(config, buildscript)
-        self.install_directx_headers(config, buildscript)
+
+    def install_python_headers(self, config, buildscript):
+        python_headers = os.path.join(config.prefix, 'include', 'python2.7')
+        buildscript.set_action(_("Installing Python headers"), self)
+        cmd = "svn checkout --trust-server-cert --non-interactive "\
+              "--no-auth-cache "\
+              "http://svn.python.org/view/python/branches/release27-maint/Include/"\
+              "%s" % python_headers
+        buildscript.execute(shlex.split(cmd))
+
+    def install_gl_headers(self, config, buildscript):
+        buildscript.set_action(_("Installing GL headers"), self)
+        gl_path = "%s/include/GL" % (config.prefix) 
+        if not os.path.exists(gl_path):
+            os.mkdir(gl_path)
+        wget = 'wget %s -O %s'
+        for h in GL_HEADERS:
+            cmd = wget % (h, "%s/%s" % (gl_path, os.path.basename(h)))
+            buildscript.execute(shlex.split(cmd))
 
     def install_directx_headers(self, config, buildscript):
         directx_headers = os.path.join(config.prefix, 'include', 'DirectX')
