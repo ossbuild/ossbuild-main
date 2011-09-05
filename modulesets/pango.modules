@@ -3,7 +3,7 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
 
-  <autotools id="pango" autogen-args="--with-included-modules" autogen-sh="configure">
+  <autotools id="pango" autogenargs="--with-included-modules" autogen-sh="configure">
     <branch module="pango/1.29/pango-1.29.3.tar.bz2" version="1.29.3"
             repo="gnome.org">
     </branch>
