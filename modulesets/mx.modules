@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="mx" autogenargs="--with-winsys=none">
+    <branch module="mx/1.3/mx-1.3.1.tar.bz2" version="1.3.1"
+            repo="clutter-project.org">
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>
