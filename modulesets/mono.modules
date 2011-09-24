@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="mono" 
+  autogen-template="CFLAGS=&quot;$CFLAGS -DGC_NOT_DLL&quot; %(srcdir)s/autogen.sh --prefix
+  %(prefix)s --libdir %(libdir)s %(autogenargs)s"
+  autogenargs="--enable-parallel-mark --program-transform-name=&quot;&quot; --with-tls=none --disable-mcs-build --disable-embed-check
+  --enable-win32-dllmain=yes --with-libgc-threads=win32 --with-profile4=yes
+  --target=$HOST">
+    <branch module="mono/mono-2.10.6.tar.bz2" version="2.10.6"
+            repo="mono-project.com">
+    </branch>
+    <dependencies>
+    </dependencies>
+  </autotools>
+
+</moduleset>
