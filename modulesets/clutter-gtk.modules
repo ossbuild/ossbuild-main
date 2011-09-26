@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+<moduleset>
+
+  <autotools id="clutter-gtk"
+  autogen-template="autoreconf; libtoolize; LDFLAGS=&quot;$LDFLAGS -no-undefined&quot; CLUTTER_REQUIRED=1.0 ./configure --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s"  autogenargs="--with-flavour=win32">
+    <branch module="clutter-gtk/0.10/clutter-gtk-0.10.8.tar.bz2" version="0.10.8"
+            repo="clutter-project.org">
+      <patch file="clutter-gtk-configure.patch"/>
+      <patch file="clutter-gtk-include.patch"/>
+    </branch>
+    <dependencies>
+      <dep package="glib"/>
+      <dep package="gtk"/>
+      <dep package="clutter"/>
+    </dependencies>
+  </autotools>
+
+</moduleset>

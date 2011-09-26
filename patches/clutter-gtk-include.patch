@@ -1,0 +1,22 @@
+--- clutter-gtk/gtk-clutter-util.c	2011-09-27 01:26:23.209252569 +0200
++++ clutter-gtk/gtk-clutter-util.c	2011-09-27 01:26:36.603403239 +0200
+@@ -16,7 +16,7 @@
+ 
+ #elif defined(HAVE_CLUTTER_GTK_WIN32)
+ 
+-#include <clutter/clutter-win32.h>
++#include <clutter/win32/clutter-win32.h>
+ #include <gdk/gdkwin32.h>
+ 
+ #endif /* HAVE_CLUTTER_GTK_{X11,WIN32} */
+--- clutter-gtk/gtk-clutter-embed.c	2011-09-27 01:25:29.181644801 +0200
++++ clutter-gtk/gtk-clutter-embed.c	2011-09-27 01:25:54.280927150 +0200
+@@ -53,7 +53,7 @@
+ 
+ #elif defined(HAVE_CLUTTER_GTK_WIN32)
+ 
+-#include <clutter/clutter-win32.h>
++#include <clutter/win32/clutter-win32.h>
+ #include <gdk/gdkwin32.h>
+ 
+ #endif /* HAVE_CLUTTER_GTK_{X11,WIN32} */

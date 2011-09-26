@@ -1,0 +1,11 @@
+--- configure.ac	2011-09-27 01:12:02.494569035 +0200
++++ configure.ac	2011-09-27 01:09:37.394936311 +0200
+@@ -79,7 +79,7 @@
+           PKG_CHECK_MODULES(CLUTTER, clutter-win32-1.0 >= $CLUTTER_REQUIRED)
+           PKG_CHECK_MODULES(GTK, gtk+-win32-2.0 >= gtk_req_version)
+           CLUTTER_GTK_REQUIRES="clutter-win32-1.0 gtk+-win32-2.0"
+-        ]
++        ],
+ 
+         [AC_MSG_ERROR([Invalid argument for --with-flavour])]
+ )
