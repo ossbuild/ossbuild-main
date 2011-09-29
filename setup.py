@@ -88,6 +88,8 @@ setup(
         ],
     },
 
+    scripts = ['python-wine'],
+
     # metadata for upload to PyPI
     author = "OSSBuild team",
     author_email = "ossbuild@ossbuil.org",
