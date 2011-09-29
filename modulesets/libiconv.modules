@@ -6,6 +6,9 @@
   <autotools id="libiconv" autogen-sh="configure" check-target="false">
     <branch module="libiconv/libiconv-1.13.1.tar.gz"
 	    repo="gnu.org" version="1.13.1"/>
+    <dependencies>
+      <dep package="gettext-runtime"/>
+    </dependencies>
   </autotools>
  
 </moduleset>
