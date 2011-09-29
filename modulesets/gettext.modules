@@ -9,9 +9,6 @@
 	    repo="gnu.org" version="0.18.1.1">
       <patch file="gettext-runtime-only.patch" strip="0"/>
     </branch>
-    <suggests>
-      <dep package="libiconv" />
-    </suggests>
   </autotools>
  
 </moduleset>
