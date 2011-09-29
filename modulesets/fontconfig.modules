@@ -11,6 +11,7 @@
     </branch>
     <dependencies>
       <dep package="expat"/>
+      <dep package="libiconv"/>
       <dep package="freetype"/>
     </dependencies>
   </autotools>
