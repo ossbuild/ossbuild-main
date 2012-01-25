@@ -98,4 +98,16 @@ class cmd_update_moduleset(Command):
         self._find_repos_and_modules(modulesets_dir, moduleset)
         self._write_moduleset(moduleset_path)
 
+    @staticmethod
+    def update(config):
+        options = DummyOptions()
+        cmd = cmd_update_moduleset()
+        cmd.run(config, options, None)
+
+
+class DummyOptions(object):
+    moduleset = None
+    modulesets_dir = None
+
+
 register_command(cmd_update_moduleset)

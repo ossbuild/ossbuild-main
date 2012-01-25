@@ -26,6 +26,8 @@ import __builtin__
 from jhbuild.errors import FatalError
 from jhbuild import config
 
+from ossbuild.commands.update_moduleset import cmd_update_moduleset
+
 
 __all__ = [ 'Config' ]
 
@@ -47,3 +49,10 @@ class Config(config.Config):
                 raise FatalError(_('could not load environment config'))
         config._defaults_file = _defaults_file
         config.Config.__init__(self, filename)
+        self.update_moduleset()
+
+    def update_moduleset(self):
+        newest_file = max (os.listdir(self.modulesets_dir),
+            key=lambda x: os.path.getmtime(os.path.join(self.modulesets_dir, x)))
+        if not newest_file.startswith(self.moduleset + '.'):
+            cmd_update_moduleset.update(self)
